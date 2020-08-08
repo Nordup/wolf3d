@@ -2,17 +2,20 @@
 #        variables:         #
 #############################
 NAME = wolf3d
-HEAD = ./header/
+INCLUDE = ./include/
 MAKEFILE = ./Makefile
 
 SRC = ./src/*
+HEAD = $(INCLUDE)*
+
+FLAGS = -lm # math library
 
 #############################
 #        tasks:             #
 #############################
 all: $(NAME)
 
-$(NAME): $(SRC) $(MAKEFILE)
-	gcc -o $(NAME) $(SRC) -I $(HEAD)
+$(NAME): $(SRC) $(MAKEFILE) $(HEAD)
+	gcc -o $(NAME) $(SRC) -I $(INCLUDE)
 
 .PHONY: all

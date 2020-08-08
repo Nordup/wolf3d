@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "wolf3d.h"
 
-int main(void) {
-    printf("Let's begin Wolf3D\n");
-    return 0;
+int		main(void) {
+	printf("Let's begin Wolf3D\n");
+	return 0;
 }
