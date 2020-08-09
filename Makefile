@@ -26,9 +26,12 @@ FLAGS = -lm #math library
 #############################
 all: $(NAME)
 
+# build libs and compile wolf3d
 $(NAME): $(C_FLS) $(MAKEFILE) $(HEAD) $(O_FLS)
-	$(CC) -o $(NAME) $(O_FLS)
+	make -C ./libraries/
+	$(CC) -o $(NAME) $(O_FLS) $(FLAGS)
 
+# compile bins and move them into dir
 $(O_FLS): $(DIR_BUILD)
 	$(CC) $(WWW) -c $(C_FLS) -I $(DIR_INCLUDE)
 	mv $(OBJECTS) $(DIR_BUILD)
@@ -42,6 +45,7 @@ clean:
 
 fclean: clean
 	rm -rf $(DIR_BUILD)
+	make fclean -C ./libraries/
 
 re: fclean all
 
