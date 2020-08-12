@@ -2,6 +2,8 @@
 # define WORLD_H
 
 # define PI 3.14159265359
+# define PI_90 PI / 90
+# define PI_180 PI / 180
 
 typedef struct s_pnt {
 	float	x;

@@ -6,6 +6,6 @@ int		rendering(Uint32 *img, t_wrld *wrld) {
 
 	draw_map(img, m);
 	draw_point(img, m->win_map, p->pnt, RED);
-	draw_line(img, m->win_map, p->pnt, p->alp, 0.5, GREEN);
+	draw_line(img, m->win_map, p->pnt, p->alp, 0.3, GREEN);
 	return 0;
 }

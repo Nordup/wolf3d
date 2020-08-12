@@ -22,7 +22,9 @@ int		game(t_sdl *sdl, t_wrld *world) {
 				quit = TRUE;
 			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) // Esc
  				   quit = TRUE;
-			//printf("%d\n", e.type);		
+			else if (e.type == SDL_KEYDOWN) {
+				movement(world, e.key.keysym.sym);
+			}		
 		}
 	}
 	return 0;
