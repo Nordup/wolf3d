@@ -18,8 +18,11 @@ int		rendering_loop(t_sdl *sdl) {
 		// get event
 		while(SDL_PollEvent(&e))
 		{
-			if (e.type == SDL_QUIT)
+			if (e.type == SDL_QUIT) // red button
 				quit = TRUE;
+			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) // esc
+ 				   quit = TRUE;
+			//printf("%d\n", e.type);		
 		}
 	}
 	return 0;
