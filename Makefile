@@ -12,7 +12,7 @@ LINYX = Linux
 
 # directories
 DIR_BUILD = ./build/
-MKDIR_BUILD = $(DIR_BUILD) $(DIR_BUILD)SDL2/
+MKDIR_BUILD = $(DIR_BUILD) $(DIR_BUILD)mySDL2/ $(DIR_BUILD)raycasting/
 DIR_INCLUDE = ./include/
 DIR_LIB = ./libraries/
 DIR_SRC = ./src/
@@ -22,8 +22,9 @@ DIR_LIBFT = $(DIR_LIB)libft/
 DIR_SDL2_HEAD = $(DIR_LIB)SDL2-2.0.12/include/
 
 # source and object files
-SOURCES =	main.c \
-			SDL2/init_sdl.c SDL2/quit.c SDL2/quit_sdl.c
+SOURCES =	main.c rendering_loop.c \
+			$(addprefix mySDL2/, init_sdl.c quit.c quit_sdl.c) \
+			$(addprefix raycasting/, raycasting.c)
 OBJECTS = $(SOURCES:%.c=%.o)
 C_FLS = $(addprefix $(DIR_SRC), $(SOURCES))
 O_FLS = $(addprefix $(DIR_BUILD), $(OBJECTS))
@@ -59,14 +60,14 @@ $(NAME): $(MKDIR_BUILD) $(C_FLS) $(MAKEFILE) $(O_FLS) $(DIR_BUILD)
 	$(CC) $(WWW) -c $(INCLUDES) $< -o $@
 
 $(MKDIR_BUILD):
-	mkdir -f $(MKDIR_BUILD)
+	mkdir -p $(MKDIR_BUILD)
 
 # clean, fclean, re
 clean:
 	rm -f $(NAME)
+	rm -rf $(DIR_BUILD)
 
 fclean: clean
-	rm -rf $(DIR_BUILD)
 	make fclean -C  $(DIR_LIB)
 
 re: fclean all

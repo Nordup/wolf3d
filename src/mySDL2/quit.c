@@ -1,4 +1,4 @@
-#include "wolf3d.h"
+#include "mySDL2.h"
 
 /**
  * printf("%s: %s\n", s, SDL_GetError());

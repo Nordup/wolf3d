@@ -1,4 +1,4 @@
-#include "wolf3d.h"
+#include "mySDL2.h"
 
 int		quit_sdl(t_sdl *sdl) {
 	SDL_DestroyTexture(sdl->tex);

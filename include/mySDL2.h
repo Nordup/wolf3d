@@ -18,6 +18,7 @@ typedef struct	s_sdl
 	SDL_Window		*win;
 	SDL_Surface		*surface;
 	SDL_Texture		*tex;
+	Uint32			*image;
 }				t_sdl;
 
 

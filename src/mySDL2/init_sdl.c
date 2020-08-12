@@ -1,4 +1,4 @@
-#include "wolf3d.h"
+#include "mySDL2.h"
 
 t_sdl*	init_sdl(void)
 {
@@ -6,6 +6,7 @@ t_sdl*	init_sdl(void)
 	Uint32			ren_flags;
 
 	sdl = (t_sdl*)malloc(sizeof(t_sdl));
+	sdl->image = (Uint32*)malloc(sizeof(Uint32) * WIN_SIZE);// window size
 	ren_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 		quit("SDL_Init Error");
