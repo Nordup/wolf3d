@@ -5,6 +5,8 @@
 # define PI_90 PI / 90
 # define PI_180 PI / 180
 
+# define STEP 0.05 // person step
+
 typedef struct s_pnt {
 	float	x;
 	float	y;
@@ -12,6 +14,7 @@ typedef struct s_pnt {
 
 typedef struct s_prsn {
 	t_pnt	pnt;
+	t_pnt	delta; // dx, dy
 	float	alp; // direction - alpha angel
 } t_prsn;
 

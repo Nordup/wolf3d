@@ -1,7 +1,6 @@
 #include "render.h"
 
 int		draw_line(Uint32 *img, t_pnt win_map, t_pnt pnt, float alp, float dis, Uint32 clr) {
-	alp = -alp; // for our coordinates
 	float	k = tan(alp);
 	float	b = pnt.y - k * pnt.x;
 	float	delta = cos(alp) * dis;
