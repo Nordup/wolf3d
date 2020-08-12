@@ -1,6 +1,6 @@
-#include "raycasting.h"
+#include "render.h"
 
-int		raycasting(Uint32 *img) {
+int		rendering(Uint32 *img, t_wrld *wrld) {
 	static Uint32	color = 0;
 	int				i;
 

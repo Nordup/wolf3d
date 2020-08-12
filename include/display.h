@@ -1,5 +1,5 @@
-#ifndef SDL2_H
-# define SDL2_H
+#ifndef DISPLAY_H
+# define DISPLAY_H
 
 #ifdef __APPLE__
 #include <SDL.h>
@@ -7,8 +7,8 @@
 #include <SDL2/SDL.h>
 #endif
 
-# define WIN_W 800
-# define WIN_H 600
+# define WIN_W 1200
+# define WIN_H 800
 # define WIN_SIZE WIN_H * WIN_W
 
 
@@ -20,7 +20,6 @@ typedef struct	s_sdl
 	SDL_Texture		*tex;
 	Uint32			*image;
 }				t_sdl;
-
 
 int		quit(char *s);
 int		quit_sdl(t_sdl *sdl);

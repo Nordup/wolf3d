@@ -1,4 +1,4 @@
-#include "mySDL2.h"
+# include "display.h"
 
 t_sdl*	init_sdl(void)
 {
@@ -10,7 +10,7 @@ t_sdl*	init_sdl(void)
 	ren_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 		quit("SDL_Init Error");
-	if (!(sdl->win =SDL_CreateWindow("WOLF3D", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_W, WIN_H, SDL_WINDOW_SHOWN)))
+	if (!(sdl->win =SDL_CreateWindow("Wolf3D", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_W, WIN_H, SDL_WINDOW_SHOWN)))
 		quit("SDL_CreateWindow Error");
 	if (!(sdl->ren = SDL_CreateRenderer(sdl->win, -1, ren_flags)))
 	{

@@ -1,4 +1,4 @@
-#include "mySDL2.h"
+# include "display.h"
 
 /**
  * printf("%s: %s\n", s, SDL_GetError());

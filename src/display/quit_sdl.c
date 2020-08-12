@@ -1,4 +1,4 @@
-#include "mySDL2.h"
+# include "display.h"
 
 int		quit_sdl(t_sdl *sdl) {
 	SDL_DestroyTexture(sdl->tex);

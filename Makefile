@@ -12,19 +12,20 @@ LINYX = Linux
 
 # directories
 DIR_BUILD = ./build/
-MKDIR_BUILD = $(DIR_BUILD) $(DIR_BUILD)mySDL2/ $(DIR_BUILD)raycasting/
+MKDIR_BUILD = $(DIR_BUILD) $(DIR_BUILD)display/ $(DIR_BUILD)render/ $(DIR_BUILD)world/
 DIR_INCLUDE = ./include/
 DIR_LIB = ./libraries/
 DIR_SRC = ./src/
-MAKEFILE = ./Makefile
 
 DIR_LIBFT = $(DIR_LIB)libft/
 DIR_SDL2_HEAD = $(DIR_LIB)SDL2-2.0.12/include/
 
 # source and object files
-SOURCES =	main.c rendering_loop.c \
-			$(addprefix mySDL2/, init_sdl.c quit.c quit_sdl.c) \
-			$(addprefix raycasting/, raycasting.c)
+SOURCES =	main.c game.c \
+			$(addprefix display/, init_sdl.c quit.c quit_sdl.c) \
+			$(addprefix render/, rendering.c) \
+			$(addprefix world/, delete_world.c init_world.c) \
+
 OBJECTS = $(SOURCES:%.c=%.o)
 C_FLS = $(addprefix $(DIR_SRC), $(SOURCES))
 O_FLS = $(addprefix $(DIR_BUILD), $(OBJECTS))
@@ -51,7 +52,7 @@ endif
 all: $(NAME)
 
 # build libs and compile wolf3d
-$(NAME): $(MKDIR_BUILD) $(C_FLS) $(MAKEFILE) $(O_FLS) $(DIR_BUILD)
+$(NAME): $(MKDIR_BUILD) $(O_FLS)
 	make -C $(DIR_LIB)
 	$(CC) -o $(NAME) $(O_FLS) $(FLAGS) $(LIB)
 
@@ -70,6 +71,6 @@ clean:
 fclean: clean
 	make fclean -C  $(DIR_LIB)
 
-re: fclean all
+re: clean all
 
 .PHONY: all clean fclean re

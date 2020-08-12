@@ -1,6 +1,6 @@
 #include "wolf3d.h"
 
-int		rendering_loop(t_sdl *sdl) {
+int		game(t_sdl *sdl, t_wrld *world) {
 	SDL_Event	e;
 	t_bool		quit;
 
@@ -8,7 +8,7 @@ int		rendering_loop(t_sdl *sdl) {
 	while (!quit)
 	{
 		// render new image
-		raycasting(sdl->image);
+		rendering(sdl->image, world);
 		// update window picture
 		SDL_UpdateTexture(sdl->tex, NULL, sdl->image, sizeof(Uint32) * WIN_W);
 		SDL_RenderClear(sdl->ren);
@@ -20,7 +20,7 @@ int		rendering_loop(t_sdl *sdl) {
 		{
 			if (e.type == SDL_QUIT) // red button
 				quit = TRUE;
-			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) // esc
+			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) // Esc
  				   quit = TRUE;
 			//printf("%d\n", e.type);		
 		}
