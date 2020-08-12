@@ -2,19 +2,13 @@
 
 t_map	*init_map(void) {
 	t_map	*map;
-	int		ibox[6][9] = {
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1},
-		{ 1, 0, 0, 0, 0, 0, 0, 0, 1},
-		{ 1, 0, 0, 0, 0, 0, 0, 0, 1},
-		{ 1, 0, 0, 0, 0, 0, 0, 0, 1},
-		{ 1, 0, 0, 0, 0, 0, 0, 0, 1},
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1}
-	};
+	t_pnt	win_map;
 
 	map = (t_map*)malloc(sizeof(t_map));
-	map->w = 9;
-	map->h = 6;
-	map->box = ibox;
+	create_box(map);
+	win_map.x = WIN_W / map->w;
+	win_map.y = WIN_H / map->h;
+	map->win_map = win_map;
 	return map;
 }
 
@@ -22,9 +16,8 @@ t_prsn	*init_person(void) {
 	t_prsn	*prsn;
 
 	prsn = (t_prsn*)malloc(sizeof(t_prsn));
-	prsn->px = 3.5;
-	prsn->px = 3.5;
-	prsn->dir = PI / 4;
+	prsn->pnt = newpnt(3.5, 3.5);
+	prsn->alp = PI / 4;
 	return prsn;
 }
 

@@ -6,10 +6,11 @@
 # include <math.h>
 # include <fcntl.h> // read/write flags
 
-# include "world.h"
 # include "libft.h"
 # include "display.h"
+# include "world.h"
 # include "render.h"
+# include "drawing.h"
 
 typedef int		t_bool;
 # define TRUE	1

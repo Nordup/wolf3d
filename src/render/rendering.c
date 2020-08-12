@@ -1,13 +1,11 @@
 #include "render.h"
 
 int		rendering(Uint32 *img, t_wrld *wrld) {
-	static Uint32	color = 0;
-	int				i;
+	t_prsn	*p = wrld->prsn;
+	t_map	*m = wrld->map;
 
-	i = 0;
-	color++;
-	while (i < WIN_SIZE) {
-		img[i] = color;
-		i++;
-	}
+	draw_map(img, m);
+	draw_point(img, m->win_map, p->pnt, RED);
+	draw_line(img, m->win_map, p->pnt, p->alp, 0.5, GREEN);
+	return 0;
 }
