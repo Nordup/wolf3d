@@ -16,8 +16,8 @@ int		rendering(Uint32 *img, t_wrld *wrld) {
 
 	while (i < WIN_W) {
 		// find distance to wall
-		float dis = ray_casting(m, p->pnt, in_two_pi(alp));
-		wall_draw(img, dis, i, WALL_CLR);
+		t_tcasting rcast = ray_casting(m, p->pnt, in_two_pi(alp));
+		wall_draw(img, rcast.dis, rcast.hor_ver, rcast.wall_type, i);
 		alp += WALL_STEP;
 		i++;
 	}
