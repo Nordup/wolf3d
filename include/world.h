@@ -5,7 +5,7 @@
 # define PI_2 PI / 2
 # define PI2 PI * 2
 # define PI3_2 3 * PI / 2
-# define R_IN_D PI / 180 // radians in degree
+# define RD PI / 180 // radians in degree
 
 # define STEP 0.1 // person step
 

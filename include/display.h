@@ -7,8 +7,8 @@
 #include <SDL2/SDL.h>
 #endif
 
-# define WIN_W 800
-# define WIN_H 800
+# define WIN_W 1200
+# define WIN_H 900
 # define WIN_SIZE WIN_H * WIN_W
 
 

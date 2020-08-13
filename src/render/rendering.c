@@ -11,18 +11,15 @@ float	in_two_pi(float alp) {
 int		rendering(Uint32 *img, t_wrld *wrld) {
 	t_prsn	*p = wrld->prsn;
 	t_map	*m = wrld->map;
-	float	alp = p->alp;
-	float	dis = 0.5;
+	int		i = 0;
+	float	alp = p->alp - (FOV/2) * RD;
 
-	draw_map(img, m);
-	// raycasting
-	alp -= (FOV/2) * R_IN_D;
-	float	alp2 = alp + FOV * R_IN_D;
-	while (alp < alp2) {
+	while (i < WIN_W) {
 		// find distance to wall
-		dis = ray_casting(m, p->pnt, in_two_pi(alp));
-		draw_line(img, m->win_map, p->pnt, alp, dis, GREEN);
-		alp += R_IN_D;
+		float dis = ray_casting(m, p->pnt, in_two_pi(alp));
+		wall_draw(img, dis, i, WALL_CLR);
+		alp += WALL_STEP;
+		i++;
 	}
 	return 0;
 }
