@@ -5,7 +5,9 @@ int		rendering(Uint32 *img, t_wrld *wrld) {
 	t_map	*m = wrld->map;
 
 	draw_map(img, m);
-	draw_point(img, m->win_map, p->pnt, RED);
-	draw_line(img, m->win_map, p->pnt, p->alp, 0.3, GREEN);
+
+	// find distance to wall
+	float dis = ray_casting(m, p->pnt, p->alp);
+	draw_line(img, m->win_map, p->pnt, p->alp, dis, GREEN);
 	return 0;
 }

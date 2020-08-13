@@ -9,12 +9,13 @@ t_pnt	newpnt(float x, float y) {
 }
 
 int		draw_point(Uint32 *img, t_pnt win_map, t_pnt pnt, Uint32 clr) {
-	img[(int)(win_map.x * pnt.x) + (int)(win_map.y * pnt.y) * WIN_W] = clr; // short
-/*	int		scr_x;
-	int		scr_y;
+	int		x = win_map.x * pnt.x;
+	int		y = win_map.y * pnt.y;
 
-	scr_x = win_map.x * pnt.x;
-	scr_y = win_map.y * pnt.y;
-	img[scr_x + scr_y * WIN_W] = clr;*/
+	if (x < 0 || x >= WIN_W)
+		return -1;
+	if (y < 0 || y >= WIN_H)
+		return -1;
+	img[x + y * WIN_W] = clr; // short
 	return 0;
 }

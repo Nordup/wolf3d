@@ -1,6 +1,6 @@
 #include "wolf3d.h"
 
-int		movement(t_wrld *wd, SDL_KeyCode key) {
+int		movement(t_wrld *wd, SDL_Event *e) {
 	t_prsn	*pn;
 
 	pn = wd->prsn;
@@ -23,4 +23,5 @@ int		movement(t_wrld *wd, SDL_KeyCode key) {
 
 	pn->delta.x = cos(pn->alp) * STEP;
 	pn->delta.y = sin(pn->alp) * STEP;
+	return 0;
 }

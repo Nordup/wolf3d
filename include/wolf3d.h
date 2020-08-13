@@ -16,7 +16,7 @@ typedef int		t_bool;
 # define TRUE	1
 # define FALSE	0
 
-int		movement(t_wrld *wd, SDL_KeyCode key);
+int		movement(t_wrld *wd, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
 # endif
