@@ -12,7 +12,7 @@ int		draw_line(Uint32 *img, t_pnt win_map, t_pnt pnt, float alp, float dis, Uint
 	// translate to window coordinates
 	pnt.x *= win_map.x;
 	pnt.y *= win_map.y;
-	dis *= sqrt(win_map.x * win_map.x + win_map.y * win_map.y);
+	dis *= win_map.x;
 	if (wrong_input(pnt))
 		return -1;
 

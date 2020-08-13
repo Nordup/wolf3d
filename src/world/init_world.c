@@ -16,10 +16,9 @@ t_prsn	*init_person(void) {
 	t_prsn	*prsn;
 
 	prsn = (t_prsn*)malloc(sizeof(t_prsn));
-	prsn->pnt = newpnt(3.5, 3.5);
-	prsn->alp = PI / 4;
+	prsn->pnt = newpnt(4, 6);
+	prsn->alp = PI_2;
 
-	prsn->alp = -prsn->alp;
 	prsn->delta.x = cos(prsn->alp) * STEP;
 	prsn->delta.y = sin(prsn->alp) * STEP;
 	return prsn;
