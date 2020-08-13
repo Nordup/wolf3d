@@ -55,8 +55,6 @@ all: $(NAME)
 $(NAME): $(MKDIR_BUILD) $(O_FLS)
 	make -C $(DIR_LIB)
 	$(CC) -o $(NAME) $(O_FLS) $(FLAGS) $(LIB)
-	# for libSDL2-2.0.so.3 library
-	export LD_LIBRARY_PATH="/usr/local/lib"
 
 # compile bins and move them into dir
  $(DIR_BUILD)%.o: $(DIR_SRC)%.c $(HEAD)

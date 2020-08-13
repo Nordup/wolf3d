@@ -5,7 +5,7 @@
 # define PI_90 PI / 90
 # define PI_180 PI / 180
 
-# define STEP 0.05 // person step
+# define STEP 0.1 // person step
 
 typedef struct s_pnt {
 	float	x;
