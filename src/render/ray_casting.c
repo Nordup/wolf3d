@@ -4,15 +4,15 @@ float	dis(t_pnt a, t_pnt b) {
 	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
-t_tcasting	ret(float dis, t_bool hor_ver, int wall_type) {
-	t_tcasting	ret;
+t_rcasting	ret(float dis, t_bool hor_ver, int wall_type) {
+	t_rcasting	ret;
 	ret.dis = dis;
 	ret.hor_ver = hor_ver;
 	ret.wall_type = wall_type;
 	return ret;
 }
 
-t_tcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
+t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
 	int		wall_type = 0;
@@ -54,7 +54,7 @@ t_tcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 	return ret(dis(pnt, A), TRUE, wall_type);
 }
 
-t_tcasting	vertical(t_map *map, t_pnt pnt, float alp) {
+t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
 	int		wall_type = 0;
@@ -95,9 +95,9 @@ t_tcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 	return ret(dis(pnt, A), FALSE, wall_type);
 }
 
-t_tcasting	ray_casting(t_map *map, t_pnt pnt, float alp) {
-	t_tcasting hor = horizontal(map, pnt, alp);
-	t_tcasting ver = vertical(map, pnt, alp);
+t_rcasting	ray_casting(t_map *map, t_pnt pnt, float alp) {
+	t_rcasting hor = horizontal(map, pnt, alp);
+	t_rcasting ver = vertical(map, pnt, alp);
 
 	//return less value
 	return (hor.dis < ver.dis) ? hor : ver;

@@ -16,15 +16,23 @@ int		movement(t_wrld *wd, SDL_Event *e) {
 			pn->alp = PI2 - PI / 160;
 	}
 	if (state[SDL_SCANCODE_UP]) {
-		pn->pnt.x += pn->delta.x; // move to dx
-		pn->pnt.y += pn->delta.y; // move to dy
+		pn->delta.x = cos(pn->alp) * STEP;
+		pn->delta.y = sin(pn->alp) * STEP;
+		// if we don't have wall in the face
+		if (ray_casting(m, pn->pnt, pn->alp).dis > 0.1) {
+			pn->pnt.x += pn->delta.x; // move to dx
+			pn->pnt.y += pn->delta.y; // move to dy
+		}
 	}
 	if (state[SDL_SCANCODE_DOWN]) {
-		pn->pnt.x -= pn->delta.x;
-		pn->pnt.y -= pn->delta.y;
+		pn->delta.x = cos(pn->alp) * STEP;
+		pn->delta.y = sin(pn->alp) * STEP;
+		// if we don't have wall in the back
+		if (ray_casting(m, pn->pnt, in_two_pi(pn->alp + PI)).dis > 0.1) {
+			pn->pnt.x -= pn->delta.x;
+			pn->pnt.y -= pn->delta.y;
+		}
 	}
 
-	pn->delta.x = cos(pn->alp) * STEP;
-	pn->delta.y = sin(pn->alp) * STEP;
 	return 0;
 }

@@ -10,15 +10,14 @@ float	in_two_pi(float alp) {
 
 int		rendering(Uint32 *img, t_wrld *wrld) {
 	t_prsn	*p = wrld->prsn;
-	t_map	*m = wrld->map;
 	int		i = 0;
 	float	alp = p->alp - (FOV/2) * RD;
 
 	while (i < WIN_W) {
 		// find distance to wall
-		t_tcasting rcast = ray_casting(m, p->pnt, in_two_pi(alp));
-		rcast.dis *= cos(in_two_pi(p->alp - alp));
-		wall_draw(img, rcast.dis, rcast.hor_ver, rcast.wall_type, i);
+		t_rcasting rcast = ray_casting(wrld->map, p->pnt, in_two_pi(alp));
+		rcast.dis *= cos(in_two_pi(p->alp - alp)); // fish aye fixing
+		wall_draw(img, rcast, i);
 		alp += WALL_STEP;
 		i++;
 	}
