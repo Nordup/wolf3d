@@ -16,8 +16,8 @@ typedef int		t_bool;
 # include "render.h"
 # include "drawing.h"
 
-
 # define FOV 70
+
 
 int		movement(t_wrld *wd, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);

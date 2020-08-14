@@ -1,8 +1,6 @@
 #ifndef DRAWING_H
 # define DRAWING_H
 
-# include "wolf3d.h"
-
 # define BLACK (Uint32)0x0
 # define WHITE (Uint32)0xffffff
 # define RED (Uint32)0xff0000

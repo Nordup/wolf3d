@@ -7,15 +7,16 @@ int		main(void) {
 	// initialize all we need
 	ft_putendl("Initializing...");
 	sdl = init_sdl();
-	world = init_world(); // check
+	world = init_world();
 
 	// main rendering part
 	ft_putendl("Start Game");
-	game(sdl, world);
+	game(sdl, world); // checking
 	
+	// cleaning refactored
 	// clean all
 	ft_putendl("Cleaning...");
-	delete_world(world);
-	quit_sdl(sdl); // done
+	free_world(world);
+	quit_sdl(sdl);
 	return 0;
 }

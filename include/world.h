@@ -37,6 +37,6 @@ typedef struct s_wrld {
 void	update_step(t_prsn *person);
 int		create_box(t_map *map);
 t_wrld	*init_world(void);
-int		delete_world(t_wrld	*world);
+int		free_world(t_wrld *world);
 
 #endif
