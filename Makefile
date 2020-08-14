@@ -12,18 +12,17 @@ LINYX = Linux
 
 # directories
 DIR_BUILD = ./build/
-MKDIR_BUILD =	$(DIR_BUILD) $(DIR_BUILD)display/ $(DIR_BUILD)render/ \
-				$(DIR_BUILD)world/ $(DIR_BUILD)drawing/
-DIR_INCLUDE = ./include/
+MKDIR_BUILD =	$(addprefix $(DIR_BUILD), display/ render/ world/ drawing/)
 DIR_LIB = ./libraries/
 DIR_SRC = ./src/
 
+DIR_INCLUDE = ./include/
 DIR_LIBFT = $(DIR_LIB)libft/
 DIR_SDL2_HEAD = $(DIR_LIB)SDL2-2.0.12/include/
 
 # source and object files
 SOURCES =	main.c game.c movement.c \
-			$(addprefix display/, init_sdl.c quit.c quit_sdl.c) \
+			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c) \
 			$(addprefix world/, delete_world.c init_world.c create_box.c) \
 			$(addprefix drawing/, draw_point.c draw_map.c draw_line.c) \

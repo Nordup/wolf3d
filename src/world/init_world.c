@@ -1,4 +1,10 @@
 #include "world.h"
+#include "wolf3d.h"
+
+void	update_step(t_prsn *person) {
+	person->step.x = cos(person->alp) * STEP;
+	person->step.y = sin(person->alp) * STEP;
+}
 
 t_map	*init_map(void) {
 	t_map	*map;
@@ -18,9 +24,6 @@ t_prsn	*init_person(void) {
 	prsn = (t_prsn*)malloc(sizeof(t_prsn));
 	prsn->pnt = newpnt(4, 6);
 	prsn->alp = PI_2;
-
-	prsn->delta.x = cos(prsn->alp) * STEP;
-	prsn->delta.y = sin(prsn->alp) * STEP;
 	return prsn;
 }
 

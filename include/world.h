@@ -1,6 +1,8 @@
 #ifndef WORLD_H
 # define WORLD_H
 
+# include <stdlib.h> // malloc, free
+
 # define PI 3.14159265359
 # define PI_2 PI / 2
 # define PI2 PI * 2
@@ -16,7 +18,7 @@ typedef struct s_pnt {
 
 typedef struct s_prsn {
 	t_pnt	pnt;
-	t_pnt	delta; // dx, dy
+	t_pnt	step; // dx, dy
 	float	alp; // direction - alpha angel
 } t_prsn;
 
@@ -32,8 +34,7 @@ typedef struct s_wrld {
 	t_map	*map;
 }	t_wrld;
 
-#include "wolf3d.h"
-
+void	update_step(t_prsn *person);
 int		create_box(t_map *map);
 t_wrld	*init_world(void);
 int		delete_world(t_wrld	*world);
