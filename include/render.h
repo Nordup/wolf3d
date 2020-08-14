@@ -3,7 +3,6 @@
 
 # include "wolf3d.h"
 # define WALL_SIZE 600
-# define WALL_STEP (FOV * RD) / WIN_W
 
 # define BLACK (Uint32)0x000000
 # define WHITE (Uint32)0xffffff
@@ -16,7 +15,7 @@
 typedef struct s_raycasting {
 	float	dis;
 	t_bool	hor_ver; // 1-hor; 0-ver
-	int		wall_type;
+	t_pnt	cast_pnt;
 } t_rcasting;
 
 int 	rendering(Uint32 *img, t_wrld *wrld);

@@ -4,18 +4,17 @@ float	dis(t_pnt a, t_pnt b) {
 	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
-t_rcasting	ret(float dis, t_bool hor_ver, int wall_type) {
+t_rcasting	ret(t_bool hor_ver, t_pnt cast_pnt, t_pnt per_pnt) {
 	t_rcasting	ret;
-	ret.dis = dis;
+	ret.dis = dis(cast_pnt, per_pnt);
 	ret.hor_ver = hor_ver;
-	ret.wall_type = wall_type;
+	ret.cast_pnt = cast_pnt;
 	return ret;
 }
 
 t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
-	int		wall_type = 0;
 
 	// CHECKING HORIZONTAL INTERSECTIONS
 	// in x,y coor system
@@ -40,10 +39,8 @@ t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 
 	while (A.y >= 0 && A.y < map->h) {
 		if (A.x >= 0 && A.x < map->w)
-			if (map->box[(int)A.y][(int)A.x] != 0) {
-				wall_type = map->box[(int)A.y][(int)A.x];
+			if (map->box[(int)A.y][(int)A.x] != 0)
 				break ;
-			}
 			else {
 				A.y += dlta.y;
 				A.x += dlta.x;
@@ -51,13 +48,12 @@ t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 		else
 			break ;
 	}
-	return ret(dis(pnt, A), TRUE, wall_type);
+	return ret(TRUE, A, pnt);
 }
 
 t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
-	int		wall_type = 0;
 	
 	// CHECKING VERTICAL INTERSECTIONS
 	if (alp < PI_2 || alp > PI3_2) { // facing right
@@ -81,10 +77,8 @@ t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 
 	while (A.x >= 0 && A.x < map->w) {
 		if (A.y >= 0 && A.y < map->h)
-			if (map->box[(int)A.y][(int)A.x] != 0) {
-				wall_type = map->box[(int)A.y][(int)A.x];
+			if (map->box[(int)A.y][(int)A.x] != 0)
 				break ;
-			}
 			else {
 				A.x += dlta.x;
 				A.y += dlta.y;
@@ -92,7 +86,7 @@ t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 		else
 			break ;
 	}
-	return ret(dis(pnt, A), FALSE, wall_type);
+	return ret(FALSE, A, pnt);
 }
 
 t_rcasting	ray_casting(t_map *map, t_pnt pnt, float alp) {

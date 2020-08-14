@@ -18,7 +18,7 @@ int		rendering(Uint32 *img, t_wrld *wrld) {
 		t_rcasting rcast = ray_casting(wrld->map, p->pnt, in_two_pi(alp));
 		rcast.dis *= cos(in_two_pi(p->alp - alp)); // fish aye fixing
 		wall_draw(img, rcast, i);
-		alp += WALL_STEP;
+		alp += (FOV * RD) / WIN_W;
 		i++;
 	}
 	return 0;
