@@ -1,11 +1,6 @@
 #include "world.h"
 #include "wolf3d.h"
 
-void	update_step(t_prsn *person) {
-	person->step.x = cos(person->alp) * STEP;
-	person->step.y = sin(person->alp) * STEP;
-}
-
 t_map	*init_map(void) {
 	t_map	*map;
 	t_pnt	win_map;

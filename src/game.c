@@ -13,7 +13,7 @@ int		game(t_sdl *sdl, t_wrld *world) {
 		SDL_UpdateTexture(sdl->tex, NULL, sdl->image, sizeof(Uint32) * WIN_W);
 		SDL_RenderClear(sdl->ren);
 		SDL_RenderCopy(sdl->ren, sdl->tex, NULL, NULL);
-		SDL_RenderPresent(sdl->ren);
+		SDL_RenderPresent(sdl->ren); // put to window
 
 		// get event
 		while(SDL_PollEvent(&e))

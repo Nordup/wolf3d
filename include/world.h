@@ -2,6 +2,7 @@
 # define WORLD_H
 
 # include <stdlib.h> // malloc, free
+# include <math.h> // cos, sin
 
 # define PI 3.14159265359
 # define PI_2 PI / 2
@@ -34,9 +35,13 @@ typedef struct s_wrld {
 	t_map	*map;
 }	t_wrld;
 
-void	update_step(t_prsn *person);
+
 int		create_box(t_map *map);
 t_wrld	*init_world(void);
 int		free_world(t_wrld *world);
+
+
+t_pnt	newpnt(float x, float y);
+void	update_step(t_prsn *person);
 
 #endif

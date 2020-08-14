@@ -24,7 +24,7 @@ DIR_SDL2_HEAD = $(DIR_LIB)SDL2-2.0.12/include/
 SOURCES =	main.c game.c movement.c \
 			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c) \
-			$(addprefix world/, free_world.c init_world.c create_box.c) \
+			$(addprefix world/, free_world.c init_world.c create_box.c newpnt.c) \
 			$(addprefix drawing/, draw_point.c draw_map.c draw_line.c) \
 
 OBJECTS = $(SOURCES:%.c=%.o)

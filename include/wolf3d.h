@@ -18,8 +18,7 @@ typedef int		t_bool;
 
 # define FOV 70
 
-
-int		movement(t_wrld *wd, SDL_Event *e);
+int		movement(t_wrld *world, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
 # endif

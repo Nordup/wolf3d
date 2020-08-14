@@ -11,9 +11,8 @@ int		main(void) {
 
 	// main rendering part
 	ft_putendl("Start Game");
-	game(sdl, world); // checking
+	game(sdl, world);
 	
-	// cleaning refactored
 	// clean all
 	ft_putendl("Cleaning...");
 	free_world(world);
