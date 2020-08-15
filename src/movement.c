@@ -6,12 +6,12 @@ int		movement(t_wrld *world, SDL_Event *e) {
 
 	const Uint8 *state = SDL_GetKeyboardState(NULL);
 	if (state[SDL_SCANCODE_RIGHT]) {
-		pn->alp += PI / 30;
+		pn->alp += PI / 70;
 		if (pn->alp >= PI2)
 			pn->alp = 0;
 	}
 	if (state[SDL_SCANCODE_LEFT]) {
-		pn->alp -= PI / 30;
+		pn->alp -= PI / 70;
 		if (pn->alp < 0)
 			pn->alp = PI2 - RD;
 	}

@@ -4,10 +4,11 @@ float	dis(t_pnt a, t_pnt b) {
 	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
-t_rcasting	ret(t_bool hor_ver, t_pnt cast_pnt, t_pnt per_pnt) {
+t_rcasting	ret(int	cardinal_point, t_pnt cast_pnt, t_pnt per_pnt) {
 	t_rcasting	ret;
+
 	ret.dis = dis(cast_pnt, per_pnt);
-	ret.hor_ver = hor_ver;
+	ret.cardinal_point = cardinal_point;
 	ret.cast_pnt = cast_pnt;
 	return ret;
 }
@@ -15,6 +16,7 @@ t_rcasting	ret(t_bool hor_ver, t_pnt cast_pnt, t_pnt per_pnt) {
 t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
+	int		cardinal_point;
 
 	// CHECKING HORIZONTAL INTERSECTIONS
 	// in x,y coor system
@@ -23,12 +25,14 @@ t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 		dlta.y = 1;
 		A.x = pnt.x + (A.y - pnt.y) / tan(alp);
 		dlta.x = 1 / tan(alp);
+		cardinal_point = North;
 	}
 	else {
-		A.y = (int)pnt.y - 0.0001;
+		A.y = (int)pnt.y - EPS;
 		dlta.y = -1;
 		A.x = pnt.x + (A.y - pnt.y) / tan(alp);
 		dlta.x = -1 / tan(alp);
+		cardinal_point = South;
 	}
 
 	if (alp == PI) {
@@ -48,12 +52,13 @@ t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 		else
 			break ;
 	}
-	return ret(TRUE, A, pnt);
+	return ret(cardinal_point, A, pnt);
 }
 
 t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
+	int		cardinal_point;
 	
 	// CHECKING VERTICAL INTERSECTIONS
 	if (alp < PI_2 || alp > PI3_2) { // facing right
@@ -61,12 +66,14 @@ t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 		dlta.x = 1;
 		A.y = pnt.y + (A.x - pnt.x) * tan(alp);
 		dlta.y = tan(alp);
+		cardinal_point = West;
 	}
 	else {
-		A.x = (int)pnt.x - 0.0001;
+		A.x = (int)pnt.x - EPS;
 		dlta.x = -1;
 		A.y = pnt.y + (A.x - pnt.x) * tan(alp);
 		dlta.y = -tan(alp);
+		cardinal_point = East;
 	}
 
 	if (alp == PI_2) {
@@ -86,7 +93,7 @@ t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 		else
 			break ;
 	}
-	return ret(FALSE, A, pnt);
+	return ret(cardinal_point, A, pnt);
 }
 
 t_rcasting	ray_casting(t_map *map, t_pnt pnt, float alp) {

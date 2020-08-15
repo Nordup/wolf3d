@@ -1,6 +1,11 @@
 #ifndef WORLD_H
 # define WORLD_H
 
+#ifdef __APPLE__
+#include <SDL.h>
+#else
+#include <SDL2/SDL.h> // Uint32
+#endif
 # include <stdlib.h> // malloc, free
 # include <math.h> // cos, sin
 
@@ -30,13 +35,20 @@ typedef struct s_map {
 	t_pnt	win_map; // WIN sizes divided by map sizes
 } t_map;
 
+typedef struct s_tex {
+	Uint32	*clmn; // column
+} t_tex;
+
 typedef struct s_wrld {
 	t_prsn	*prsn;
 	t_map	*map;
-}	t_wrld;
+	t_tex	*tex;
+} t_wrld;
 
 
-int		create_box(t_map *map);
+t_tex	*init_tex(void);
+t_map	*init_map(void);
+t_prsn	*init_person(void);
 t_wrld	*init_world(void);
 int		free_world(t_wrld *world);
 
