@@ -37,6 +37,7 @@ typedef struct s_map {
 
 typedef struct s_tex {
 	Uint32	*clmn; // column
+	int		clmn_size;
 } t_tex;
 
 typedef struct s_wrld {

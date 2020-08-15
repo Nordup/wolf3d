@@ -24,9 +24,11 @@ int		free_world(t_wrld *world) {
 		// free person
 		if (world->prsn != NULL)
 			free(world->prsn);
+			
 		// free texture
 		if (world->tex != NULL) {
-			free(world->tex->clmn);
+			if (world->tex->clmn != NULL)
+				free(world->tex->clmn);
 			free(world->tex);
 		}
 		free(world);
