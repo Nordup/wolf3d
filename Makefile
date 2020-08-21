@@ -12,7 +12,7 @@ LINYX = Linux
 
 # directories
 DIR_BUILD = ./build/
-MKDIR_BUILD =	$(addprefix $(DIR_BUILD), display/ render/ world/ )
+MKDIR_BUILD =	$(addprefix $(DIR_BUILD), display/ render/ world/ parsing/)
 DIR_LIB = ./libraries/
 DIR_SRC = ./src/
 DIR_SDL2 = $(DIR_LIB)SDL2.framework/
@@ -26,6 +26,7 @@ SOURCES =	main.c game.c movement.c \
 			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c set_wall_texture.c) \
 			$(addprefix world/, free_world.c init_world.c init_tex.c init_map.c newpnt.c) \
+			$(addprefix parsing/, )
 
 OBJECTS = $(SOURCES:%.c=%.o)
 C_FLS = $(addprefix $(DIR_SRC), $(SOURCES))
