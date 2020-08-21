@@ -14,7 +14,6 @@ typedef int		t_bool;
 # include "display.h"
 # include "world.h"
 # include "render.h"
-# include "drawing.h"
 
 # define FOV 70
 
