@@ -1,20 +1,20 @@
-DIR_SDL2 = ./SDL2-2.0.12/
+SDL2_FRAMEWORK = SDL2.framework
+DIR_FRAMEWORKS = ~/Library/Frameworks/
+DIR_SDL2_FRAMEWORK = $(DIR_FRAMEWORKS)$(SDL2_FRAMEWORK)
 DIR_LIBFT = ./libft/
 
-DIR_BUILD = $(DIR_SDL2)build/
 LIBFT = $(DIR_LIBFT)libft.a
 
-all: $(DIR_BUILD) $(LIBFT)
+all: $(DIR_SDL2_FRAMEWORK) $(LIBFT)
 
 $(LIBFT):
 	make -C $(DIR_LIBFT)
 
-$(DIR_BUILD):
-	mkdir $(DIR_BUILD)
-	bash SDL2_build.sh
+$(DIR_SDL2_FRAMEWORK):
+	cp -rf $(SDL2_FRAMEWORK) $(DIR_FRAMEWORKS)
 
 fclean:
 	make fclean -C $(DIR_LIBFT)
-	rm -rf $(DIR_BUILD)
+	rm -rf $(DIR_SDL2_FRAMEWORK)
 
 .PHONY: all fclean
