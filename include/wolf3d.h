@@ -18,4 +18,8 @@
 int		movement(t_wrld *world, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
+//mashley
+int	ft_open_read(char *name);
+
+
 # endif
