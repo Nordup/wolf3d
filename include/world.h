@@ -14,8 +14,11 @@
 # define PI2 PI * 2
 # define PI3_2 3 * PI / 2
 # define RD PI / 180 // radians in degree
-
 # define STEP 0.1 // person step
+# define TRUE	1
+# define FALSE	0
+
+typedef int		t_bool;
 
 typedef struct s_pnt {
 	float	x;
