@@ -12,20 +12,21 @@ LINYX = Linux
 
 # directories
 DIR_BUILD = ./build/
-MKDIR_BUILD =	$(addprefix $(DIR_BUILD), display/ render/ world/ drawing/)
+MKDIR_BUILD =	$(addprefix $(DIR_BUILD), display/ render/ world/ parsing/)
 DIR_LIB = ./libraries/
 DIR_SRC = ./src/
+DIR_SDL2 = $(DIR_LIB)SDL2.framework/
 
 DIR_INCLUDE = ./include/
 DIR_LIBFT = $(DIR_LIB)libft/
-DIR_SDL2_HEAD = $(DIR_LIB)SDL2-2.0.12/include/
+DIR_SDL2_HEAD = $(DIR_SDL2)/Headers/
 
 # source and object files
 SOURCES =	main.c game.c movement.c \
 			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c set_wall_texture.c) \
 			$(addprefix world/, free_world.c init_world.c init_tex.c init_map.c newpnt.c) \
-			$(addprefix drawing/, draw_point.c draw_map.c draw_line.c) \
+			$(addprefix parsing/, )
 
 OBJECTS = $(SOURCES:%.c=%.o)
 C_FLS = $(addprefix $(DIR_SRC), $(SOURCES))
@@ -38,7 +39,7 @@ INCLUDES = -I $(DIR_INCLUDE) -I $(DIR_LIBFT) -I $(DIR_SDL2_HEAD)
 
 # flags
 ifeq ($(SYSTEM), $(MACOS))
-	FLAGS = -framework SDL2 -F $(DIR_LIB) -rpath $(DIR_LIB) -lm
+	FLAGS = -F $(DIR_LIB) -rpath $(DIR_LIB) -framework SDL2 -lm
 else ifeq ($(SYSTEM), $(LINYX))
 	FLAGS = -l SDL2 -lm
 endif
@@ -65,9 +66,9 @@ $(MKDIR_BUILD):
 # clean, fclean, re
 clean:
 	rm -f $(NAME)
-	rm -rf $(DIR_BUILD)
 
 fclean: clean
+	rm -rf $(DIR_BUILD)
 	make fclean -C  $(DIR_LIB)
 
 re: clean all
