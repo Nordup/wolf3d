@@ -33,19 +33,17 @@ typedef struct s_map {
 	t_pnt	win_map; // WIN sizes divided by map sizes
 } t_map;
 
-typedef struct s_tex {
-	Uint32	*clmn; // column
-	int		clmn_size;
-} t_tex;
+typedef struct s_wall {
+	Uint32	*tex; // column
+	int		size;
+} t_wall;
 
 typedef struct s_wrld {
 	t_prsn	*prsn;
 	t_map	*map;
-	t_tex	*tex;
+	t_wall	*wall;
 } t_wrld;
 
-
-t_tex	*init_tex(void);
 t_map	*init_map(void);
 t_prsn	*init_person(void);
 t_wrld	*init_world(void);
@@ -54,6 +52,7 @@ int		free_world(t_wrld *world);
 
 t_pnt	newpnt(float x, float y);
 void	update_step(t_prsn *person);
+void	set_wall_size(t_wrld *wrld, float size);
 
 
 // parsing
