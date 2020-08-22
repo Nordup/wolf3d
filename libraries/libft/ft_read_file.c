@@ -22,6 +22,13 @@ char	*ft_read_file(char *name) {
 	}
 	while (gnl_status == 1) {
 		gnl_status = get_next_line(fd, &line);
+		/** join \n to the end of line
+		 * */
+		del = line;
+		line = ft_strjoin(line, "\n");
+		ft_strdel(&del);
+		/** join line to the file
+		 * */
 		del = file;
 		file = ft_strjoin(file, line);
 		ft_strdel(&del);
