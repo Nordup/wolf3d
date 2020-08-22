@@ -14,6 +14,6 @@
 
 int	**read_map(char *file)
 {
-
+	ft
 	return (NULL);
 }
