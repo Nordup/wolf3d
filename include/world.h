@@ -42,23 +42,28 @@ typedef struct s_wall {
  * 
  * */
 typedef struct s_wall_type {
-	int		type;
-	char	*card_tex_name[4];
+	int					type;
+	char				*north;
+	char				*south;
+	char				*east;
+	char				*west;
+	struct s_wall_type	*next;
 } t_wall_type;
 
 typedef struct s_texture {
-	char	*name;
-	int		w;
-	int		h;
-	int		**clr;
+	char				*name;
+	int					w;
+	int					h;
+	int					**clr;
+	struct s_texture	*next;
 } t_texture;
 
 typedef struct s_wrld {
 	t_prsn		*prsn;
 	t_map		*map;
 	t_wall		*wall;
-	t_wall_type	**types;
-	t_texture	**textures;
+	t_wall_type	*type;
+	t_texture	*tex;
 } t_wrld;
 
 t_map	*init_map(void);
@@ -74,7 +79,7 @@ void	set_wall_size(t_wrld *wrld, float size);
 
 // parsing
 int			**read_map(char *file);
-t_texture	**read_textures(void);
-t_wall_type	**read_wall_types(void);
+t_texture	*read_textures(void);
+t_wall_type	*read_wall_types(void);
 
 #endif

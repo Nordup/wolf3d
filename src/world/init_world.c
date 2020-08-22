@@ -22,7 +22,7 @@ t_wrld	*init_world(void) {
 	world->wall = init_wall();
 	world->map = init_map();
 	world->prsn = init_person();
-	world->types = read_wall_types();
-	world->textures = read_textures();
+	world->type = read_wall_types();
+	world->tex = read_textures();
 	return world;
 }

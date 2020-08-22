@@ -1,4 +1,5 @@
-# include "display.h"
+#include "display.h"
+#include "libft.h"
 
 int		quit_sdl(t_sdl *sdl) {
 	if (sdl->image)

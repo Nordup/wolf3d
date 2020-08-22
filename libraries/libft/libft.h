@@ -33,7 +33,8 @@ struct				s_split{
 
 int					ft_open_read(char *name);
 int					get_next_line(const int fd, char **line);
-char				*ft_read_file(char *name);
+void				ft_str_arraydel(char **file);
+char				**ft_read_file(char *name);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
