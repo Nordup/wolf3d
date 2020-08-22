@@ -57,6 +57,6 @@ void	update_step(t_prsn *person);
 
 
 // parsing
-int	ft_open_read(char *name);
+int		**read_map(char *file);
 
 #endif
