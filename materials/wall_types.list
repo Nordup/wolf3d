@@ -1,0 +1,14 @@
+type(0)
+{
+	north()
+	south()
+	east()
+	west()
+}
+type(1)
+{
+	north()
+	south()
+	east()
+	west()
+}
