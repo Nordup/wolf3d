@@ -5,3 +5,17 @@ type(1)
 	east(brick)
 	west(nan)
 }
+type(2)
+{
+	north(brick)
+	south(brick)
+	east(brick)
+	west(brick)
+}
+type(10)
+{
+	north(art)
+	south(art)
+	east(art)
+	west(art)
+}

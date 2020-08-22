@@ -1,0 +1,8 @@
+textures
+{
+	texture(art.ppm)
+	texture(boar.ppm)
+	texture(brick.ppm)
+	texture(nan.ppm)
+	texture(test.ppm)
+}
