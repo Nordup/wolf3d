@@ -26,22 +26,22 @@ int		add_wtype_back(t_wall_type *wtype, t_wall_type add) {
 t_wall_type	*read_wall_types(void) {
 	t_wall_type	*wtype;
 	t_wall_type	temp;
-	char		**file = NULL;
+	char		**list = NULL;
 
 	wtype = NULL;
-	file = ft_read_file(WALL_TYPES_LIST);
-	if (file == NULL)
+	list = ft_read_file(WALL_TYPES_LIST);
+	if (list == NULL)
 		return NULL;
 	
 	int i = 0;
-	while (file[i] != NULL) {
-		ft_putendl(file[i]);
+	while (list[i] != NULL) {
+		ft_putendl(list[i]);
 		i++;
 	}
 
 	add_wtype_back(wtype, temp);
 	// free strarray
-	if (file != NULL)
-		ft_str_arraydel(file);
+	if (list != NULL)
+		ft_str_arraydel(list);
 	return wtype;
 }

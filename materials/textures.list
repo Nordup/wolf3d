@@ -1,4 +1,4 @@
-textures
+folder(./materials/textures/)
 {
 	texture(art.ppm)
 	texture(boar.ppm)

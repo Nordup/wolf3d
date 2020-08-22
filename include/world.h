@@ -38,18 +38,6 @@ typedef struct s_wall {
 	int		size;
 } t_wall;
 
-/**
- * 
- * */
-typedef struct s_wall_type {
-	int					type;
-	char				*north;
-	char				*south;
-	char				*east;
-	char				*west;
-	struct s_wall_type	*next;
-} t_wall_type;
-
 typedef struct s_texture {
 	char				*name;
 	int					w;
@@ -57,6 +45,18 @@ typedef struct s_texture {
 	int					**clr;
 	struct s_texture	*next;
 } t_texture;
+
+/**
+ * link to texture
+ * */
+typedef struct s_wall_type {
+	int					type;
+	t_texture			*north;
+	t_texture			*south;
+	t_texture			*east;
+	t_texture			*west;
+	struct s_wall_type	*next;
+} t_wall_type;
 
 typedef struct s_wrld {
 	t_prsn		*prsn;

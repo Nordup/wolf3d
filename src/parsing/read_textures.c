@@ -25,9 +25,22 @@ int		add_tex_back(t_texture *tex, t_texture add) {
 t_texture	*read_textures(void) {
 	t_texture	*tex;
 	t_texture	temp;
-	char		*file;
+	char		**list = NULL;
 
 	tex = NULL;
+	list = ft_read_file(TEXTURES_LISST);
+	if (list == NULL)
+		return NULL;
+	
+	int i = 0;
+	while (list[i] != NULL) {
+		ft_putendl(list[i]);
+		i++;
+	}
+	
 	add_tex_back(tex, temp);
+	// free strarray
+	if (list != NULL)
+		ft_str_arraydel(list);
 	return tex;
 }
