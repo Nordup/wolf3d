@@ -6,12 +6,12 @@ int		main(void) {
 
 	// initialize all we need
 	ft_putendl("Initializing...");
-	//sdl = init_sdl();
 	world = init_world();
+	sdl = init_sdl();
 
 	// main rendering part
 	ft_putendl("Enjoying the game...");
-	//game(sdl, world);
+	game(sdl, world);
 	
 	// clean all
 	ft_putendl("Cleaning...");

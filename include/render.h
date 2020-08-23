@@ -9,7 +9,7 @@ enum		cardinal_points {
 
 typedef struct s_raycasting {
 	float	dis;
-	int		cardinal_point; // 1-hor; 0-ver
+	int		cardinal_point; // 1-north;2-south;3-east;4-west;
 	t_pnt	cast_pnt;
 } t_rcasting;
 

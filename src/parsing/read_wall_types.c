@@ -10,8 +10,6 @@ t_texture	*find_texture(t_texture *tex, char *name) {
 			else
 				break;
 		}
-	else
-		ft_putendl("null");
 	return 	NULL;
 }
 
