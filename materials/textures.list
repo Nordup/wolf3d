@@ -1,8 +1,8 @@
 folder(./materials/textures/)
 {
-	texture(art.ppm)
-	texture(boar.ppm)
-	texture(brick.ppm)
-	texture(nan.ppm)
+	exture(art.ppm)
+	exture(boar.ppm)
+	exture(brick.ppm)
+	exture(nan.ppm)
 	texture(test.ppm)
 }

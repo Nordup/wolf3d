@@ -20,7 +20,7 @@ C_FLS = ft_abs.c ft_atoi.c ft_atoi_base.c ft_bzero.c ft_intlen.c ft_isalnum.c ft
 		  ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 		  ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c \
 		  ft_toupper.c ft_lstnew.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
-		  ft_dellist.c get_next_line.c ft_open_read.c ft_read_file.c
+		  ft_dellist.c get_next_line.c ft_open_read.c ft_read_file.c ft_count_atoi.c
 HEAD = libft.h
 FLAGS = -Wall -Wextra -Werror
 O_FLS = $(C_FLS:%.c=%.o)

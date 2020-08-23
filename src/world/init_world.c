@@ -25,6 +25,26 @@ void	print_wall_types(t_wall_type *wtype) {
 	}
 }
 
+void	print_textures(t_texture *tex) {
+	if (tex) {
+		ft_putendl("textures list:");
+		while (1) {
+			ft_putstr("\t");
+			ft_putstr(tex->name);
+			ft_putstr(" ");
+			ft_putnbr(tex->w);
+			ft_putstr(" ");
+			ft_putnbr(tex->h);
+			ft_putstr("\n");
+			if (tex->next == NULL)
+				break;
+			tex = tex->next;
+		}
+	} else {
+		ft_putendl("textures == NULL");
+	}
+}
+
 void	set_wall_size(t_wrld *wrld, float size) {
 	if (size >= WIN_H)
 		size = WIN_H - 1;
@@ -48,6 +68,7 @@ t_wrld	*init_world(void) {
 	world->prsn = init_person();
 	world->tex = read_textures_list();
 	world->type = read_wall_types();
+	print_textures(world->tex);
 	print_wall_types(world->type);
 	return world;
 }

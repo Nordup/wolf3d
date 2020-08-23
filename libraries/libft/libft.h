@@ -31,6 +31,7 @@ struct				s_split{
 	int				start;
 };
 
+int					ft_count_atoi(char const *s, int *number);
 int					ft_open_read(char *name);
 int					get_next_line(const int fd, char **line);
 void				ft_str_arraydel(char **file);
