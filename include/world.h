@@ -48,13 +48,23 @@ typedef struct s_texture {
 
 /**
  * link to texture
- * */
+ * 
 typedef struct s_wall_type {
 	int					type;
 	t_texture			*north;
 	t_texture			*south;
 	t_texture			*east;
 	t_texture			*west;
+	struct s_wall_type	*next;
+} t_wall_type;*/
+
+// name of texture
+typedef struct s_wall_type {
+	int					type;
+	char				*north;
+	char				*south;
+	char				*east;
+	char				*west;
 	struct s_wall_type	*next;
 } t_wall_type;
 
