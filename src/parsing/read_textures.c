@@ -34,7 +34,7 @@ t_texture	*read_textures(void) {
 	
 	int i = 0;
 	while (list[i] != NULL) {
-		ft_putendl(list[i]);
+		ft_putendl(get_content(list[i]));
 		i++;
 	}
 	
