@@ -26,7 +26,7 @@ SOURCES =	main.c game.c movement.c \
 			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c set_wall_texture.c) \
 			$(addprefix world/, free_world.c init_world.c init_map.c newpnt.c) \
-			$(addprefix parsing/,  read_map.c read_textures.c read_wall_types.c get_content.c)
+			$(addprefix parsing/,  read_map.c read_textures_list.c read_wall_types.c get_content.c)
 
 OBJECTS = $(SOURCES:%.c=%.o)
 C_FLS = $(addprefix $(DIR_SRC), $(SOURCES))

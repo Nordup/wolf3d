@@ -22,7 +22,8 @@ int		add_wtype_back(t_wall_type **wtype, t_wall_type *add) {
 t_wall_type	*read_wall_types(void) {
 	t_wall_type	*wtype;
 	t_wall_type	*temp;
-	char		**list = NULL;
+	char		**list;
+	char		*type;
 
 	wtype = NULL;
 	temp = NULL;
@@ -38,7 +39,10 @@ t_wall_type	*read_wall_types(void) {
 				add_wtype_back(&wtype, temp); // add previous
 			}
 			temp = (t_wall_type*)malloc(sizeof(t_wall_type));
-			temp->type = ft_atoi(get_content(list[i])); // read type content
+			// read type content
+			type = get_content(list[i]);
+			temp->type = ft_atoi(type);
+			ft_strdel(&type);
 		}
 		// read fields
 		if (ft_strstr(list[i], "north"))

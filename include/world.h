@@ -90,7 +90,7 @@ void	set_wall_size(t_wrld *wrld, float size);
 // parsing
 char		*get_content(char *line);
 int			**read_map(char *file);
-t_texture	*read_textures(void);
+t_texture	*read_textures_list(void);
 t_wall_type	*read_wall_types(void);
 
 #endif

@@ -3,7 +3,9 @@
 
 void	print_wall_types(t_wall_type *wtype) {
 	if (wtype != NULL) {
+		ft_putendl("wtype list:");
 		while (1) {
+			ft_putstr("\t");
 			ft_putnbr(wtype->type);
 			ft_putstr(" ");
 			ft_putstr(wtype->north);
@@ -44,7 +46,7 @@ t_wrld	*init_world(void) {
 	world->wall = init_wall();
 	world->map = init_map();
 	world->prsn = init_person();
-	world->tex = read_textures();
+	world->tex = read_textures_list();
 	world->type = read_wall_types();
 	print_wall_types(world->type);
 	return world;
