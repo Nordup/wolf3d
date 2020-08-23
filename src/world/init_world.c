@@ -35,7 +35,14 @@ void	print_textures(t_texture *tex) {
 			ft_putnbr(tex->w);
 			ft_putstr(" ");
 			ft_putnbr(tex->h);
+			/*for (int i = 0; i < tex->w; i++) {
+				for (int j = 0; j < tex->h; j++) {
+					ft_putstr(" ");
+					ft_putnbr(tex->clr[i][j]);
+				}
+			}*/
 			ft_putstr("\n");
+
 			if (tex->next == NULL)
 				break;
 			tex = tex->next;

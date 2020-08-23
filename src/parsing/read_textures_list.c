@@ -1,5 +1,19 @@
 #include "wolf3d.h"
 
+void	free_int_array(int	**array, int size) {
+	int		i;
+
+	i = 0;
+	if (array) {
+		while (i < size) {
+			if (array[i])
+				free(array[i]);
+			i++;
+		}
+		free(array);
+	}
+}
+
 int		add_tex_back(t_texture **tex, t_texture *add) {
 	t_texture	*temp;
 
@@ -39,8 +53,23 @@ t_texture	*read_texture(char *file, char *tex_name) {
 	tex->h = array[1];
 	// read clrs
 	int	i = 3;
+	tex->clr = (int**)malloc(sizeof(int*) * tex->w);
 	while (ppm[i] != NULL) {
+		array = get_clr_array(ppm[i], tex->h);
+		if (array == NULL) {
+			free_int_array(tex->clr, i - 3);
+			ft_strdel(&tex->name);
+			free(tex);
+			return NULL;
+		}
+		tex->clr[i - 3] = array;
 		i++;
+	}
+	if ((i - 3) != tex->w) {
+		free_int_array(tex->clr, i - 3);
+		ft_strdel(&tex->name);
+		free(tex);
+		return NULL;
 	}
 	if (ppm != NULL)
 		ft_str_arraydel(ppm);
