@@ -21,7 +21,7 @@ static	void	fill_map(char *str, int ***map)
 	i = 1;
 	while (i < *map[0][0] + 1)
 	{
-		*map[i] = (int*)ft_memalloc(sizeof(int) * (*map[0][1]));
+		(*map)[i] = (int*)ft_memalloc(sizeof(int) * ((*map)[0][1]));
 		nums = ft_strsplit(str, ' ');
 		j = 0;
 		while (j < *map[0][1])
