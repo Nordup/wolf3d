@@ -1,6 +1,6 @@
 #include "world.h"
 
-int		free_world(t_wrld *world) {
+void		free_world(t_wrld *world) {
 
 	// free world
 	if (world != NULL) {

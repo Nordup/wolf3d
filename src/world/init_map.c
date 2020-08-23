@@ -54,7 +54,7 @@ t_map	*init_map(void) {
 	win_map.x = WIN_W / map->w;
 	win_map.y = WIN_H / map->h;
 	map->win_map = win_map;
-	return map;
+	return (map);
 }
 
 t_prsn	*init_person(void) {
