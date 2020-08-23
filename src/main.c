@@ -4,10 +4,12 @@ int		main(int argc, char**argv)
 {
 	t_sdl	*sdl;
 	t_wrld	*world;
+	int		**map;
 
 	if (argc != 2)
 		game_over(1);
-//	int **map = read_map(argv[1]);
+	map = read_map(argv[1]);
+	printf("%d %d", map[0][0], map[0][1]);
 //	if (!map)
 //		printf("map is NULL");
 	// initialize all we need

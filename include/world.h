@@ -60,5 +60,6 @@ void	update_step(t_prsn *person);
 int	ft_open_read(char *name);
 int	ft_spnbrcount(char *str);
 void	game_over(int error);
+int	**read_map(char *file);
 
 #endif

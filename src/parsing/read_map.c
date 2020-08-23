@@ -12,60 +12,54 @@
 
 #include "wolf3d.h"
 
-//static	int	fill_map(int **map, int fd)
-//{
-//	int		i;
-//	int		j;
-//	char	**nums;
-//
-//	(void)j;
-//	(void)nums;
-//	i = 0;
-//	while (0)
-//		i++;
-//	return ((int**) {{0, 0}, {0, 0}});
-//}
+static	void	fill_map(char *str, int ***map)
+{
+	int		i;
+	int		j;
+	char	**nums;
 
-//int	**read_map(char *file)
-//{
-//	char	*str;
-//	char	**numb;
-//	int		fd;
-//	int		**map;
-//	int		he_we_i_j[4];
-//
-//	if (!(fd = ft_open_read(file)))
-//		game_over(2);
-//	he_we_i_j[0] = 0;
-//	he_we_i_j[1] = 0;
-//	while (get_next_line(fd, &str) == 1)
-//	{
-//		if (he_we_i_j[1] != 0 && ft_spnbrcount(str) != he_we_i_j[1])
-//			game_over(4);
-//		he_we_i_j[0]++;
-//		he_we_i_j[1] = ft_spnbrcount(str);
-//		free(str);
-//	}
-//	close(fd);
-//	if (!(fd = ft_open_read(file)))
-//		game_over(2);
-//	map = (int**)ft_memalloc(sizeof(int*) * he_we_i_j[0]);
-//	he_we_i_j[2] = 0;
-//	while (he_we_i_j[2] < he_we_i_j[0])
-//	{
-//		map[he_we_i_j[2]] = (int*)ft_memalloc(sizeof(int) * he_we_i_j[1]);
-//		get_next_line(fd, &str);
-//		numb = ft_strsplit(str);
-//		he_we_i_j[3] = 0;
-//		while (he_we_i_j[3] < he_we_i_j[1])
-//		{
-//			map[he_we_i_j[2]][he_we_i_j[3]] = ft_atoi(numb[he_we_i_j[2]][he_we_i_j[3]]);
-//			free(numb[he_we_i_j[2]][he_we_i_j[3]]);
-//			numb[he_we_i_j[2]][he_we_i_j[3]] = NULL;
-//			he_we_i_j[3]++;
-//		}
-//		he_we_i_j[2]++;
-//	}
-//
-//	return ((int**) {{0, 0}, {0, 0}});
-//}
+	i = 1;
+	while (i < *map[0][0] + 1)
+	{
+		*map[i] = (int*)ft_memalloc(sizeof(int) * (*map[0][1]));
+		nums = ft_strsplit(str, ' ');
+		j = 0;
+		while (j < *map[0][1])
+		{
+			*map[i][j] = ft_atoi(nums[j]);
+			j++;
+		}
+		i++;
+	}
+}
+
+int	**read_map(char *file)
+{
+	char	*str;
+	int		fd;
+	int		height;
+	int		width;
+	int		**map;
+
+	if (!(fd = ft_open_read(file)))
+		game_over(2);
+	height = 0;
+	width = 0;
+	while (get_next_line(fd, &str) == 1)
+	{
+		if (width != 0 && ft_spnbrcount(str) != width)
+			game_over(4);
+		height++;
+		width = ft_spnbrcount(str);
+		free(str);
+	}
+	close(fd);
+	if (!(fd = ft_open_read(file)))
+		game_over(2);
+	map = (int**)ft_memalloc(sizeof(int*) * (height + 1));
+	map[0] = (int*)ft_memalloc(sizeof(int) * 2);
+	map[0][0] = height;
+	map[0][1] = width;
+	fill_map(str, &map);
+	return (map);
+}
