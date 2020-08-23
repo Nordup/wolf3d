@@ -1,6 +1,30 @@
 #include "world.h"
 #include "wolf3d.h"
 
+void	print_wall_types(t_wall_type *wtype) {
+	if (wtype != NULL) {
+		ft_putendl("wtype list:");
+		while (1) {
+			ft_putstr("\t");
+			ft_putnbr(wtype->type);
+			ft_putstr(" ");
+			ft_putstr(wtype->north);
+			ft_putstr(" ");
+			ft_putstr(wtype->south);
+			ft_putstr(" ");
+			ft_putstr(wtype->east);
+			ft_putstr(" ");
+			ft_putstr(wtype->west);
+			ft_putstr("\n");
+			if (wtype->next == NULL)
+				break;
+			wtype = wtype->next;
+		}
+	} else {
+		ft_putendl("wtype == NULL");
+	}
+}
+
 void	set_wall_size(t_wrld *wrld, float size) {
 	if (size >= WIN_H)
 		size = WIN_H - 1;
@@ -22,7 +46,8 @@ t_wrld	*init_world(void) {
 	world->wall = init_wall();
 	world->map = init_map();
 	world->prsn = init_person();
+	world->tex = read_textures_list();
 	world->type = read_wall_types();
-	world->tex = read_textures();
+	print_wall_types(world->type);
 	return world;
 }
