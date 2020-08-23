@@ -10,7 +10,7 @@ int		main(void) {
 	world = init_world();
 
 	// main rendering part
-	ft_putendl("Start Game");
+	ft_putendl("Enjoying the game...");
 	//game(sdl, world);
 	
 	// clean all
