@@ -58,5 +58,6 @@ void	update_step(t_prsn *person);
 
 // parsing
 int	ft_open_read(char *name);
+int	ft_spnbrcount(char *str);
 
 #endif
