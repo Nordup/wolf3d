@@ -12,10 +12,17 @@ type(2)
 	east(brick)
 	west(brick)
 }
-type(10)
+type(3)
 {
 	north(art)
 	south(art)
 	east(art)
 	west(art)
+}
+type(10)
+{
+	north(test)
+	south(test)
+	east(test)
+	west(test)	
 }

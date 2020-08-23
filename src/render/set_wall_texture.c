@@ -3,7 +3,7 @@
 t_wall_type	*find_wall_type(t_wall_type *wtype, int type) {
 	if (wtype)
 		while (1) {
-			if (wtype->type = type)
+			if (wtype->type == type)
 				return wtype;
 			if (wtype->next != NULL)
 				wtype = wtype->next;
@@ -14,6 +14,8 @@ t_wall_type	*find_wall_type(t_wall_type *wtype, int type) {
 }
 
 t_texture	*cardinal_tex(t_wall_type *wtype, int c_point) {
+	if (wtype == NULL)
+		return 	NULL;
 	if (c_point == North)
 		return wtype->north;
 	else if (c_point == South)
@@ -44,15 +46,14 @@ int		get_color(t_texture *tex, int w, int i, int size) {
 	wall_i = 1 - wall_i;
 	float	h = tex->h * wall_i;
 
-	if (w >= tex->w || h >= tex->h)
+	if (w >= tex->w || h >= tex->h || tex->w < 0 || tex->h < 0)
 		return RED;
 	else
 		return tex->clr[(int)h][w];
 }
 
 int		set_wall_texture(t_wrld *wrld, t_rcasting rc) {
-	int		type = wrld->map->box[(int)rc.cast_pnt.y][(int)rc.cast_pnt.x];
-	t_wall_type	*wtype = find_wall_type(wrld->type, type);
+	t_wall_type	*wtype = find_wall_type(wrld->type, rc.type);
 	t_texture	*tex = cardinal_tex(wtype, rc.cardinal_point);
 	float		w = get_width(rc); // from 0 to 1
 
