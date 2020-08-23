@@ -1,7 +1,7 @@
 #include "world.h"
 #include "wolf3d.h"
 
-int		create_box(t_map *map) {
+void		create_box(t_map *map) {
 	int		w = 10;
 	int		h = 10;/*
 	int		b[10][10] = {

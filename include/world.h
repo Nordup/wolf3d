@@ -49,7 +49,7 @@ t_tex	*init_tex(void);
 t_map	*init_map(void);
 t_prsn	*init_person(void);
 t_wrld	*init_world(void);
-int		free_world(t_wrld *world);
+void		free_world(t_wrld *world);
 
 
 t_pnt	newpnt(float x, float y);
@@ -59,5 +59,6 @@ void	update_step(t_prsn *person);
 // parsing
 int	ft_open_read(char *name);
 int	ft_spnbrcount(char *str);
+void	game_over(int error);
 
 #endif

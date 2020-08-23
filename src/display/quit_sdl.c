@@ -1,6 +1,7 @@
+#include <libft.h>
 # include "display.h"
 
-int		quit_sdl(t_sdl *sdl) {
+void		quit_sdl(t_sdl *sdl) {
 	if (sdl->image)
 		free(sdl->image);
 	if (sdl) {
@@ -15,7 +16,7 @@ int		quit_sdl(t_sdl *sdl) {
 /**
  * printf("%s: %s\n", s, SDL_GetError());
  * */
-int		quit(char *s) {
+void		quit(char *s) {
 	ft_putstr(s);
 	ft_putstr(": ");
 	ft_putstr(SDL_GetError());

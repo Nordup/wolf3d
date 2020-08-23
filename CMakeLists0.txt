@@ -1,0 +1,58 @@
+cmake_minimum_required(VERSION 3.16)
+project(Nordup)
+
+set(CMAKE_C_STANDARD 99)
+
+#https://qna.habr.com/q/150083
+#set(SDL2_PATH "C:\\SDL2-2.0.5\\x86_64-w64-mingw32") # ПУТЬ К ВАШЕЙ SDL БИБЛИОТЕКЕ
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+
+include_directories(${CMAKE_PROJECT_NAME}
+        libraries/SDL2.framework/Headers
+        libraries/libft)
+#        libraries/SDL/sdl2/2.0.12_1/include/SDL2/
+#        libraries/SDL/sdl2_image/2.0.5/include/SDL2/
+#        libraries/SDL/sdl2_mixer/2.0.4/include/SDL2/
+#        libraries/SDL/sdl2_ttf/2.0.15/include/SDL2/
+
+
+find_package(SDL2 REQUIRED)
+#find_package(SDL2_Image REQUIRED)
+#find_package(SDL2_ttf REQUIRED)
+
+find_library(SDL2s SDL2 ~/.brew/lib)
+find_library(SDL2t SDL2_ttf ~/.brew/lib)
+find_library(SDL2g SDL2_gfx ~/.brew/lib)
+
+include_directories(${SDL2_INCLUDE_DIR}
+        ${SDL2_IMAGE_INCLUDE_DIR}
+        ${SDL2_TTF_INCLUDE_DIR}
+        ~/.brew/include/SDL2)
+
+include_directories(include)
+
+FILE(GLOB SOURCES src/*.c src/*/*.c)
+
+add_executable(${CMAKE_PROJECT_NAME}
+     ${SOURCES}) #"libraries/SDL2-2.0.12/Xcode-iOS/Template/SDL iOS Application/main.c"
+
+target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC ${SDL2s} ${SDL2t} ${SDL2g})
+
+#target_link_libraries(${CMAKE_PROJECT_NAME}
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2/2.0.12_1/lib/libSDL2-2.0.0.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2/2.0.12_1/lib/libSDL2.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_image/2.0.5/lib/libSDL2_image-2.0.0.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_image/2.0.5/lib/libSDL2_image.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_mixer/2.0.4/lib/libSDL2_mixer-2.0.0.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_mixer/2.0.4/lib/libSDL2_mixer.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_ttf/2.0.15/lib/libSDL2_ttf-2.0.0.dylib
+#        ${PROJECT_SOURCE_DIR}/libraries/SDL/sdl2_ttf/2.0.15/lib/libSDL2_ttf.dylib)
+
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        ${SDL2_LIBRARY}
+        ${SDL2_IMAGE_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES})
+
+add_subdirectory(libraries/libft)
+target_link_libraries(${CMAKE_PROJECT_NAME} libft)

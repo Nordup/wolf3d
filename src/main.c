@@ -5,10 +5,11 @@ int		main(int argc, char**argv)
 	t_sdl	*sdl;
 	t_wrld	*world;
 
-	(void)argc;
-	(void)argv;
-//	int **map = read_map(argc, argv);
-
+	if (argc != 2)
+		game_over(1);
+//	int **map = read_map(argv[1]);
+//	if (!map)
+//		printf("map is NULL");
 	// initialize all we need
 	ft_putendl("Initializing...");
 	sdl = init_sdl();
