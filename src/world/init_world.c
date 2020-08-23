@@ -8,13 +8,25 @@ void	print_wall_types(t_wall_type *wtype) {
 			ft_putstr("\t");
 			ft_putnbr(wtype->type);
 			ft_putstr(" ");
-			ft_putstr(wtype->north);
+			if (wtype->north)
+				ft_putstr(wtype->north->name);
+			else
+				ft_putstr("null");
 			ft_putstr(" ");
-			ft_putstr(wtype->south);
+			if (wtype->south)
+				ft_putstr(wtype->south->name);
+			else
+				ft_putstr("null");
 			ft_putstr(" ");
-			ft_putstr(wtype->east);
+			if (wtype->east)
+				ft_putstr(wtype->east->name);
+			else
+				ft_putstr("null");
 			ft_putstr(" ");
-			ft_putstr(wtype->west);
+			if (wtype->west)
+				ft_putstr(wtype->west->name);
+			else
+				ft_putstr("null");
 			ft_putstr("\n");
 			if (wtype->next == NULL)
 				break;
@@ -74,7 +86,7 @@ t_wrld	*init_world(void) {
 	world->map = init_map();
 	world->prsn = init_person();
 	world->tex = read_textures_list();
-	world->type = read_wall_types();
+	world->type = read_wall_types(world->tex);
 	print_textures(world->tex);
 	print_wall_types(world->type);
 	return world;

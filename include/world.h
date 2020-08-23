@@ -48,23 +48,13 @@ typedef struct s_texture {
 
 /**
  * link to texture
- * 
+ * */
 typedef struct s_wall_type {
 	int					type;
 	t_texture			*north;
 	t_texture			*south;
 	t_texture			*east;
 	t_texture			*west;
-	struct s_wall_type	*next;
-} t_wall_type;*/
-
-// name of texture
-typedef struct s_wall_type {
-	int					type;
-	char				*north;
-	char				*south;
-	char				*east;
-	char				*west;
 	struct s_wall_type	*next;
 } t_wall_type;
 
@@ -93,6 +83,6 @@ int			*get_int_array(char *line, int size);
 char		*get_content(char *line);
 int			**read_map(char *file);
 t_texture	*read_textures_list(void);
-t_wall_type	*read_wall_types(void);
+t_wall_type	*read_wall_types(t_texture *tex);
 
 #endif

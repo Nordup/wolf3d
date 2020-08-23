@@ -1,5 +1,20 @@
 #include "wolf3d.h"
 
+t_texture	*find_texture(t_texture *tex, char *name) {
+	if (tex)
+		while (1) {
+			if (ft_strequ(tex->name, name))
+				return tex;
+			if (tex->next != NULL)
+				tex = tex->next;
+			else
+				break;
+		}
+	else
+		ft_putendl("null");
+	return 	NULL;
+}
+
 int		add_wtype_back(t_wall_type **wtype, t_wall_type *add) {
 	t_wall_type	*temp;
 
@@ -19,11 +34,11 @@ int		add_wtype_back(t_wall_type **wtype, t_wall_type *add) {
 	return 0;
 }
 
-t_wall_type	*read_wall_types(void) {
+t_wall_type	*read_wall_types(t_texture *tex) {
 	t_wall_type	*wtype;
 	t_wall_type	*temp;
 	char		**list;
-	char		*type;
+	char		*content;
 
 	wtype = NULL;
 	temp = NULL;
@@ -33,26 +48,24 @@ t_wall_type	*read_wall_types(void) {
 	
 	int i = 0;
 	while (list[i] != NULL) {
-		// read type
+		content = get_content(list[i]); // read type content
 		if (ft_strstr(list[i], "type")) {
 			if (temp != NULL) {
 				add_wtype_back(&wtype, temp); // add previous
 			}
 			temp = (t_wall_type*)malloc(sizeof(t_wall_type));
-			// read type content
-			type = get_content(list[i]);
-			temp->type = ft_atoi(type);
-			ft_strdel(&type);
+			temp->type = ft_atoi(content);
 		}
 		// read fields
 		if (ft_strstr(list[i], "north"))
-			temp->north = get_content(list[i]);
+			temp->north = find_texture(tex, content);
 		else if (ft_strstr(list[i], "south"))
-			temp->south = get_content(list[i]);
+			temp->south =  find_texture(tex, content);
 		else if (ft_strstr(list[i], "east"))
-			temp->east = get_content(list[i]);
+			temp->east =  find_texture(tex, content);
 		else if (ft_strstr(list[i], "west"))
-			temp->west = get_content(list[i]);
+			temp->west =  find_texture(tex, content);
+		ft_strdel(&content);
 		i++;
 	}
 	// add last wall type
