@@ -33,4 +33,5 @@ int		free_world(t_wrld *world) {
 		}
 		free(world);
 	}
+	return (0);
 }
