@@ -27,6 +27,7 @@ SOURCES =	main.c game.c movement.c \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c set_wall_texture.c) \
 			$(addprefix world/, free_world.c init_world.c init_map.c newpnt.c) \
 			$(addprefix parsing/,  read_map.c read_textures_list.c read_wall_types.c \
+						game_over.c ft_open_read.c ft_spnbrcount.c \
 						get_int_array.c get_content.c)
 
 OBJECTS = $(SOURCES:%.c=%.o)
@@ -72,6 +73,6 @@ fclean: clean
 	rm -rf $(DIR_BUILD)
 	make fclean -C  $(DIR_LIB)
 
-re: fclean all
+re: clean all
 
 .PHONY: all clean fclean re

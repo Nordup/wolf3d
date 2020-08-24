@@ -104,4 +104,9 @@ char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
+//mashley
+int	ft_issign(int c);
+int	ft_isspace(int c);
+int	ft_isnumber(int c);
+
 #endif

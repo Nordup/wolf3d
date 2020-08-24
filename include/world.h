@@ -83,4 +83,8 @@ int			**read_map(char *file);
 t_texture	*read_textures_list(void);
 t_wall_type	*read_wall_types(t_texture *tex);
 
+int	ft_open_read(char *name);
+int	ft_spnbrcount(char *str);
+void	game_over(int error);
+
 #endif
