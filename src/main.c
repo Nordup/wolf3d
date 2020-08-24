@@ -6,8 +6,8 @@ int		main(void) {
 
 	// initialize all we need
 	ft_putendl("Initializing...");
-	world = init_world();
 	sdl = init_sdl();
+	world = init_world();
 
 	// main rendering part
 	ft_putendl("Enjoying the game...");
