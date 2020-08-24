@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
 # include "get_next_line.h"
 
 typedef struct		s_list{
@@ -30,6 +32,12 @@ struct				s_split{
 	int				start;
 };
 
+int					ft_count_atoi(char const *s, int *number);
+int					ft_open_read(char *name);
+int					get_next_line(const int fd, char **line);
+void				ft_str_arraydel(char **file);
+char				**ft_read_file(char *name);
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
@@ -37,7 +45,6 @@ void				ft_lstadd(t_list **alst, t_list *a);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-int					get_next_line(const int fd, char **line);
 int					ft_abs(int n);
 int					ft_intlen(int n);
 int					ft_atoi_base(const char *str, int str_base);

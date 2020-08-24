@@ -21,6 +21,9 @@
 
 # define FOV 70
 
+# define TEXTURES_LIST "./materials/textures.list"
+# define WALL_TYPES_LIST "./materials/wall_types.list"
+
 int		movement(t_wrld *world, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
