@@ -19,7 +19,7 @@ int		movement(t_wrld *world, SDL_Event *e) {
 		// update step
 		update_step(pn);
 		// if we don't have wall in the face
-		if (ray_casting(m, pn->pnt, pn->alp).dis > STEP * 3) {
+		if (ray_casting(m, pn->pnt, pn->alp).dis > STEP) {
 			
 			// move forward
 			pn->pnt.x += pn->step.x;
@@ -30,7 +30,7 @@ int		movement(t_wrld *world, SDL_Event *e) {
 		// update step
 		update_step(pn);
 		// if we don't have wall in the back
-		if (ray_casting(m, pn->pnt, in_two_pi(pn->alp + PI)).dis > STEP * 3) {
+		if (ray_casting(m, pn->pnt, in_two_pi(pn->alp + PI)).dis > STEP) {
 
 			// move back
 			pn->pnt.x -= pn->step.x;

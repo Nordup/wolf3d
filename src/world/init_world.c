@@ -64,12 +64,6 @@ void	print_textures(t_texture *tex) {
 	}
 }
 
-void	set_wall_size(t_wrld *wrld, float size) {
-	if (size >= WIN_H)
-		size = WIN_H - 1;
-	wrld->wall->size = size;
-}
-
 t_wall	*init_wall(void) {
 	int		size = WIN_H + 1;
 	t_wall *wall = (t_wall*)malloc(sizeof(t_wall));

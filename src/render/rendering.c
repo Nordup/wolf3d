@@ -19,8 +19,10 @@ int		rendering(Uint32 *img, t_wrld *wrld) {
 		 // fish aye fixing
 		rcast.dis *= cos(in_two_pi(p->alp - alp));
 		// find the wall size
-		set_wall_size(wrld, WALL_SIZE / rcast.dis);
+		wrld->wall->size = WALL_SIZE / rcast.dis;
 		set_wall_texture(wrld, rcast);
+		if (wrld->wall->size >= WIN_H)
+			wrld->wall->size = WIN_H - 1;
 		wall_draw(img, wrld->wall, i);
 		alp += (FOV * RD) / WIN_W;
 		i++;

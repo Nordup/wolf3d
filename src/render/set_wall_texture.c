@@ -42,9 +42,17 @@ float	get_width(t_rcasting rc) {
 }
 
 int		get_color(t_texture *tex, int w, int i, int size) {
-	float	wall_i = (float)i / size;
-	wall_i = 1 - wall_i;
-	float	h = tex->h * wall_i;
+	float win_wall;
+	float h;
+
+	if (size < WIN_H) {
+		win_wall = (float)i / size;
+	} else {
+		float x = (size - WIN_H) / 2 + i;
+		win_wall = x / size;
+	}
+	win_wall = 1 - win_wall;
+	h = tex->h * win_wall;
 
 	if (w >= tex->w || h >= tex->h || tex->w < 0 || tex->h < 0)
 		return RED;
@@ -59,14 +67,14 @@ int		set_wall_texture(t_wrld *wrld, t_rcasting rc) {
 
 	int		i = 0;
 	if (tex == NULL) {
-		while (i < wrld->wall->size) {
+		while (i < wrld->wall->size && i < WIN_H) {
 			wrld->wall->tex[i] = BLACK;
 			i++;
 		}
 	}
 	else {
 		w = w * tex->w; // to tex size
-		while (i < wrld->wall->size) {
+		while (i < wrld->wall->size && i < WIN_H) {
 			wrld->wall->tex[i] = get_color(tex, (int)w, i, wrld->wall->size);
 			i++;
 		}

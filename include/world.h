@@ -74,7 +74,6 @@ void	free_world(t_wrld *world);
 
 t_pnt	newpnt(float x, float y);
 void	update_step(t_prsn *person);
-void	set_wall_size(t_wrld *wrld, float size);
 
 
 // parsing
