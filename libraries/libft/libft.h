@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+
 # include "get_next_line.h"
 
 typedef struct		s_list{
@@ -29,6 +30,12 @@ struct				s_split{
 	int				i;
 	int				start;
 };
+
+
+
+
+
+
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));

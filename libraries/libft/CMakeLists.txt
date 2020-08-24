@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 project(libft C)
-
 set(CMAKE_C_STANDARD 99)
+
+
+
+file(GLOB SOURCES *.c)
 
 include_directories(.)
 
-file(GLOB SRCS *.c)
-file(GLOB HEAD *.h)
-
-add_library(libft STATIC ${SRCS} ${HEAD})
+add_library(libft STATIC ${SOURCES})

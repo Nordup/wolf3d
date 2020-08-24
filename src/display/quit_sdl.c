@@ -2,9 +2,9 @@
 # include "display.h"
 
 int		quit_sdl(t_sdl *sdl) {
-	if (sdl->image)
-		free(sdl->image);
 	if (sdl) {
+		if (sdl->image)
+			free(sdl->image);
 		SDL_DestroyTexture(sdl->tex);
 		SDL_DestroyRenderer(sdl->ren);
 		SDL_DestroyWindow(sdl->win);

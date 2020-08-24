@@ -12,7 +12,7 @@
 
 #include "wolf3d.h"
 
-int	ft_open_read(char *name)
+int		ft_open_read(char *name)
 {
 	int		fd;
 	char	*buf;
@@ -20,6 +20,6 @@ int	ft_open_read(char *name)
 	buf = NULL;
 	fd = open(name, O_RDONLY, 0);
 	if (fd < 0 || read(fd, buf, 0) < 0)
-		return (0);
+		return (-1);
 	return (fd);
 }

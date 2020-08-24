@@ -1,5 +1,6 @@
 # include "display.h"
 
+
 t_sdl*	init_sdl(void)
 {
 	t_sdl			*sdl;
@@ -17,6 +18,14 @@ t_sdl*	init_sdl(void)
 		SDL_DestroyWindow(sdl->win);
 		quit("SDL_CreateRenderer Error");
 	}
+
+
+
+
+
+
+
+
 	if (!(sdl->tex = SDL_CreateTexture(sdl->ren, SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STREAMING, WIN_W, WIN_H)))
 	{

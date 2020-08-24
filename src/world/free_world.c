@@ -1,6 +1,6 @@
 #include "world.h"
 
-int		free_world(t_wrld *world) {
+void		free_world(t_wrld *world) {
 
 	// free world
 	if (world != NULL) {
@@ -26,12 +26,11 @@ int		free_world(t_wrld *world) {
 			free(world->prsn);
 			
 		// free texture
-		if (world->tex != NULL) {
-			if (world->tex->clmn != NULL)
-				free(world->tex->clmn);
-			free(world->tex);
+		if (world->wall != NULL) {
+			if (world->wall->tex != NULL)
+				free(world->wall->tex);
+			free(world->wall);
 		}
 		free(world);
 	}
-	return (0);
 }

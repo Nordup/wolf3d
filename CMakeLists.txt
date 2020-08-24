@@ -4,6 +4,8 @@ set(CMAKE_C_STANDARD 99)
 
 FILE(GLOB SOURCES src/*.c src/*/*.c)
 
+
+
 include_directories(${CMAKE_PROJECT_NAME}
         libraries/SDL/sdl2/2.0.12_1/include/SDL2/
         libraries/SDL/sdl2_image/2.0.5/include/SDL2/
@@ -12,9 +14,7 @@ include_directories(${CMAKE_PROJECT_NAME}
         libraries/SDL2.framework/Headers
         include
         libraries/libft)
-
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
-
 target_link_libraries(${CMAKE_PROJECT_NAME}
         ${CMAKE_SOURCE_DIR}/libraries/SDL/sdl2/2.0.12_1/lib/libSDL2-2.0.0.dylib
         ${CMAKE_SOURCE_DIR}/libraries/SDL/sdl2/2.0.12_1/lib/libSDL2.dylib
