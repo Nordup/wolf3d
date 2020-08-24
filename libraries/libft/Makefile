@@ -28,16 +28,16 @@ O_FLS = $(C_FLS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(O_FLS)
-	@ar rcs $(NAME) $(O_FLS)
+	ar rcs $(NAME) $(O_FLS)
 
 %.o: %.c $(HEAD)
-	@gcc $(FLAGS) -c $(C_FLS)
+	gcc $(FLAGS) -c $(C_FLS)
 
 clean:
-	@rm -f $(O_FLS)
+	rm -f $(O_FLS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

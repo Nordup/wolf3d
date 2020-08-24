@@ -9,7 +9,7 @@ t_rcasting	ret(int	cardinal_point, t_pnt cast_pnt, t_pnt per_pnt, int type) {
 
 	ret.dis = dis(cast_pnt, per_pnt);
 	ret.cardinal_point = cardinal_point;
-
+	ret.type = type;
 	ret.cast_pnt = cast_pnt;
 	return ret;
 }
@@ -18,6 +18,7 @@ t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	A;
 	t_pnt	dlta;
 	int		cardinal_point;
+	int		type = 0;
 
 
 	// CHECKING HORIZONTAL INTERSECTIONS
@@ -64,7 +65,6 @@ t_rcasting	vertical(t_map *map, t_pnt pnt, float alp) {
 	t_pnt	dlta;
 	int		cardinal_point;
 	int		type = 0;
-
 	// CHECKING VERTICAL INTERSECTIONS
 	if (alp < PI_2 || alp > PI3_2) { // facing right
 		A.x = (int)pnt.x + 1;

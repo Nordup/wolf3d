@@ -33,41 +33,39 @@ typedef struct s_map {
 	t_pnt	win_map; // WIN sizes divided by map sizes
 } t_map;
 
+typedef struct s_wall {
+	Uint32	*tex; // column
+	int		size;
+} t_wall;
 
+typedef struct s_texture {
+	char				*name;
+	int					w;
+	int					h;
+	int					**clr;
+	struct s_texture	*next;
+} t_texture;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * link to texture
+ * */
+typedef struct s_wall_type {
+	int					type;
+	t_texture			*north;
+	t_texture			*south;
+	t_texture			*east;
+	t_texture			*west;
+	struct s_wall_type	*next;
+} t_wall_type;
 
 typedef struct s_wrld {
-	t_prsn	*prsn;
-	t_map	*map;
-
-
+	t_prsn		*prsn;
+	t_map		*map;
+	t_wall		*wall;
+	t_wall_type	*type;
 	t_texture	*tex;
 } t_wrld;
 
-
-t_tex	*init_tex(void);
 t_map	*init_map(void);
 t_prsn	*init_person(void);
 t_wrld	*init_world(void);
@@ -76,12 +74,13 @@ void	free_world(t_wrld *world);
 
 t_pnt	newpnt(float x, float y);
 void	update_step(t_prsn *person);
+
 // parsing
-
-
-
-
-
-
+int			*get_clr_array(char *line, int size);
+int			*get_int_array(char *line, int size);
+char		*get_content(char *line);
+int			**read_map(char *file);
+t_texture	*read_textures_list(void);
+t_wall_type	*read_wall_types(t_texture *tex);
 
 #endif

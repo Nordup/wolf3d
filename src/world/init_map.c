@@ -44,6 +44,7 @@ int		create_box(t_map *map) {
 		x = 0;
 		y++;
 	}
+	return (0);
 }
 
 t_map	*init_map(void) {

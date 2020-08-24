@@ -2,7 +2,7 @@
 
 int		wall_draw(Uint32 *img, t_wall *wall,  int column) {
 	int		sky_size = (WIN_H - wall->size) / 2;
-
+	int		wall_size = wall->size;
 	int		y = 0;
 
 	// fill sky

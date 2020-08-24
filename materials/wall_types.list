@@ -1,0 +1,28 @@
+type(1)
+{
+	north(art)
+	south(boar)
+	east(brick)
+	west(nan)
+}
+type(2)
+{
+	north(brick)
+	south(brick)
+	east(brick)
+	west(brick)
+}
+type(3)
+{
+	north(art)
+	south(art)
+	east(art)
+	west(art)
+}
+type(10)
+{
+	north(test)
+	south(test)
+	east(test)
+	west(test)	
+}

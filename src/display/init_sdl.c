@@ -1,4 +1,5 @@
 # include "display.h"
+# define LOADING_IMAGE "./materials/loading/loading.bmp"
 
 
 t_sdl*	init_sdl(void)
@@ -18,14 +19,11 @@ t_sdl*	init_sdl(void)
 		SDL_DestroyWindow(sdl->win);
 		quit("SDL_CreateRenderer Error");
 	}
-
-
-
-
-
-
-
-
+	// put loading image
+	SDL_Surface *image = SDL_LoadBMP(LOADING_IMAGE);
+	SDL_Texture	*texture = SDL_CreateTextureFromSurface(sdl->ren, image);
+	SDL_RenderCopy(sdl->ren, texture, NULL, NULL);
+	SDL_RenderPresent(sdl->ren);
 	if (!(sdl->tex = SDL_CreateTexture(sdl->ren, SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STREAMING, WIN_W, WIN_H)))
 	{
