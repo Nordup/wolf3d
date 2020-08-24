@@ -79,7 +79,7 @@ void	update_step(t_prsn *person);
 int			*get_clr_array(char *line, int size);
 int			*get_int_array(char *line, int size);
 char		*get_content(char *line);
-int			**read_map(char *file);
+t_map		*read_map(char *file);
 t_texture	*read_textures_list(void);
 t_wall_type	*read_wall_types(t_texture *tex);
 
