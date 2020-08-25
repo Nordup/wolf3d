@@ -68,7 +68,7 @@ typedef struct s_wrld {
 
 t_map	*init_map(void);
 t_prsn	*init_person(void);
-t_wrld	*init_world(void);
+t_wrld	*init_world(char *map_file);
 void	free_world(t_wrld *world);
 
 

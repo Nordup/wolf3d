@@ -8,14 +8,13 @@ int		main(int argc, char**argv)
 
 	if (argc != 2)
 		game_over(1);
-	map = read_map(argv[1]);
 
 //	if (!map)
 //		printf("map is NULL");
 	// initialize all we need
 	ft_putendl("Initializing...");
 	sdl = init_sdl();
-	world = init_world();
+	world = init_world(argv[1]);
 
 	// main rendering part
 	ft_putendl("Enjoying the game...");

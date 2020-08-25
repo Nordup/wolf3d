@@ -72,12 +72,12 @@ t_wall	*init_wall(void) {
 	return wall;
 }
 
-t_wrld	*init_world(void) {
+t_wrld	*init_world(char *map_name) {
 	t_wrld	*world;
 
 	world = (t_wrld*)malloc(sizeof(t_wrld));
 	world->wall = init_wall();
-	world->map = init_map();
+	world->map = read_map(map_name);
 	world->prsn = init_person();
 	world->tex = read_textures_list();
 	world->type = read_wall_types(world->tex);
