@@ -75,7 +75,7 @@ typedef struct			s_wrld
 	t_texture			*tex;
 }						t_wrld;
 
-t_wrld					*init_world(char *map_file);
+t_wrld					*init_world(void);
 void					free_world(t_wrld *world);
 
 

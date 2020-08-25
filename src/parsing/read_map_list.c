@@ -23,52 +23,54 @@ t_map   *read_map_list(void) {
 	t_map	    *map;
 	t_map	    *temp;
 	char		**list;
-	char		*name;
-	char		*file;
-    char        *per_pos;
+	char		*content;
 
-	map = NULL;
-	file = NULL;
-    per_pos = NULL;
+    map = NULL;
+	content = NULL;
+    temp = NULL;
 	list = ft_read_file(MAPS_LIST);
 	if (list == NULL)
 		return NULL;
 	
 	int i = 0;
 	while (list[i] != NULL) {
-		if (ft_strstr(list[i], "map")) {
-			file = get_content(list[i]);
-			// read map
-			temp = read_map(file);
+        content = get_content(list[i]);
+		if (ft_strnequ(list[i], "map", 3))
+        {
 			if (temp != NULL)
 				add_map_back(&map, temp);
+			// read map
+			temp = read_map(content);
+            if (content)
+                ft_strdel(&content);
 		}
-		else if (ft_strstr(list[i], "name")) {
-			name = get_content(list[i]);
-            temp->name = name;
+		else if (ft_strnequ(list[i], "\tname", 5))
+        {
+            temp->name = content;
 			// free strings
 			//ft_strdel(&name); // added to map->name
 		}
-        else if (ft_strstr(list[i], "person_x"))
+        else if (ft_strnequ(list[i], "\tperson_x", 9))
         {
-            per_pos = get_content(list[i]);
-            temp->prsn.pnt.x = ft_atoi(per_pos);
+            temp->prsn.pnt.x = ft_atoi(content);
+            if (content)
+                ft_strdel(&content);
         }
-        else if (ft_strstr(list[i], "person_y"))
+        else if (ft_strnequ(list[i], "\tperson_y", 9))
         {
-            per_pos = get_content(list[i]);
-            temp->prsn.pnt.y = ft_atoi(per_pos);
+            temp->prsn.pnt.y = ft_atoi(content);
+            if (content)
+                ft_strdel(&content);
         }
-        else if (ft_strstr(list[i], "person_alp"))
+        else if (ft_strnequ(list[i], "\tperson_alp", 11))
         {
-            per_pos = get_content(list[i]);
-            temp->prsn.alp = ft_atoi(per_pos) / PI2;
+            temp->prsn.alp = ft_atoi(content) / PI2;
+            if (content)
+                ft_strdel(&content);
         }
-        // free
-		if (file != NULL)
-			ft_strdel(&file);
-		if (per_pos != NULL)
-			ft_strdel(&per_pos);
+        else if (content)
+            ft_strdel(&content);
+        
 		i++;
 	}
 	// free strings

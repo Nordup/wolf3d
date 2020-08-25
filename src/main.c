@@ -1,6 +1,12 @@
 #include "wolf3d.h"
 
-int		main(int argc, char**argv)
+int		check_world(t_wrld *world) {
+	if (world->map == NULL)
+		return 1;
+	return 0;
+}
+
+int		main(void)
 {
 	t_sdl	*sdl;
 	t_wrld	*world;
@@ -8,7 +14,9 @@ int		main(int argc, char**argv)
 	// initialize all we need
 	ft_putendl("Initializing...");
 	sdl = init_sdl();
-	world = init_world(argv[1]);
+	world = init_world();
+	if (check_world(world) != 0)
+		return -1;
 
 	// main rendering part
 	ft_putendl("Enjoying the game...");
