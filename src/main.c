@@ -4,13 +4,7 @@ int		main(int argc, char**argv)
 {
 	t_sdl	*sdl;
 	t_wrld	*world;
-	t_map	*map;
 
-	if (argc != 2)
-		game_over(1);
-
-//	if (!map)
-//		printf("map is NULL");
 	// initialize all we need
 	ft_putendl("Initializing...");
 	sdl = init_sdl();

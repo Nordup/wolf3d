@@ -64,5 +64,7 @@ t_map			*read_map(char *file)
 		game_over(2);
 	map->box = (int**)ft_memalloc(sizeof(int*) * (map->h));
 	fill_box(fd, map);
+	map->prsn.alp = 0;
+	map->prsn.pnt = newpnt(0, 0);
 	return (map);
 }
