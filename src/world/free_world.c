@@ -20,10 +20,6 @@ void		free_world(t_wrld *world) {
 			}
 			free(world->map);
 		}
-
-		// free person
-		if (world->prsn != NULL)
-			free(world->prsn);
 			
 		// free texture
 		if (world->wall != NULL) {

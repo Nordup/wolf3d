@@ -78,7 +78,10 @@ t_wrld	*init_world(char *map_name) {
 	world = (t_wrld*)malloc(sizeof(t_wrld));
 	world->wall = init_wall();
 	world->map = read_map(map_name);
-	world->prsn = init_person();
+	// delete it
+	world->map->prsn.pnt = newpnt(5,5);
+	world->map->prsn.alp = PI_2;
+	//
 	world->tex = read_textures_list();
 	world->type = read_wall_types(world->tex);
 	print_textures(world->tex);

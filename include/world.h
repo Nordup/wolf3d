@@ -29,8 +29,8 @@ typedef struct s_prsn {
 typedef struct s_map {
 	int		w;
 	int		h;
+	t_prsn	prsn;
 	int		**box;
-	t_pnt	win_map; // WIN sizes divided by map sizes
 } t_map;
 
 typedef struct s_wall {
@@ -59,7 +59,6 @@ typedef struct s_wall_type {
 } t_wall_type;
 
 typedef struct s_wrld {
-	t_prsn		*prsn;
 	t_map		*map;
 	t_wall		*wall;
 	t_wall_type	*type;
@@ -67,7 +66,6 @@ typedef struct s_wrld {
 } t_wrld;
 
 t_map	*init_map(void);
-t_prsn	*init_person(void);
 t_wrld	*init_world(char *map_file);
 void	free_world(t_wrld *world);
 

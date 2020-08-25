@@ -9,15 +9,15 @@ float	in_two_pi(float alp) {
 }
 
 int		rendering(Uint32 *img, t_wrld *wrld) {
-	t_prsn	*p = wrld->prsn;
+	t_prsn	p = wrld->map->prsn;
 	int		i = 0;
-	float	alp = p->alp - (FOV/2) * RD;
+	float	alp = p.alp - (FOV/2) * RD;
 
 	while (i < WIN_W) {
 		// find distance to wall
-		t_rcasting rcast = ray_casting(wrld->map, p->pnt, in_two_pi(alp));
+		t_rcasting rcast = ray_casting(wrld->map, p.pnt, in_two_pi(alp));
 		 // fish aye fixing
-		rcast.dis *= cos(in_two_pi(p->alp - alp));
+		rcast.dis *= cos(in_two_pi(p.alp - alp));
 		// find the wall size
 		wrld->wall->size = WALL_SIZE / rcast.dis;
 		set_wall_texture(wrld, rcast);

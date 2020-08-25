@@ -1,0 +1,5 @@
+map(1)
+{
+    file(./materials/maps/42.fdf)
+    person(10 10)
+}

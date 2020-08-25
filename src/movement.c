@@ -1,7 +1,7 @@
 #include "wolf3d.h"
 
 int		movement(t_wrld *world, SDL_Event *e) {
-	t_prsn	*pn = world->prsn;
+	t_prsn	*pn = &world->map->prsn;
 	t_map	*m = world->map;
 
 	const Uint8 *state = SDL_GetKeyboardState(NULL);

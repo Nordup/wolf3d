@@ -1,28 +1,28 @@
 type(1)
 {
-	north(art)
-	south(boar)
-	east(brick)
-	west(nan)
+	north(art.ppm)
+	south(boar.ppm)
+	east(brick.ppm)
+	west(nan.ppm)
 }
 type(2)
 {
-	north(brick)
-	south(brick)
-	east(brick)
-	west(brick)
+	north(brick.ppm)
+	south(brick.ppm)
+	east(brick.ppm)
+	west(brick.ppm)
 }
 type(3)
 {
-	north(art)
-	south(art)
-	east(art)
-	west(art)
+	north(art.ppm)
+	south(art.ppm)
+	east(art.ppm)
+	west(art.ppm)
 }
 type(10)
 {
-	north(test)
-	south(test)
-	east(test)
-	west(test)	
+	north(test.ppm)
+	south(test.ppm)
+	east(test.ppm)
+	west(test.ppm)	
 }

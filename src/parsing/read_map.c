@@ -64,7 +64,5 @@ t_map			*read_map(char *file)
 		game_over(2);
 	map->box = (int**)ft_memalloc(sizeof(int*) * (map->h));
 	fill_box(fd, map);
-	map->win_map.x = WIN_W / map->w;
-	map->win_map.y = WIN_H / map->h;
 	return (map);
 }

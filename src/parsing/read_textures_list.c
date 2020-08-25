@@ -37,10 +37,8 @@ t_texture	*read_texture(char *file, char *tex_name) {
 	char		**ppm;
 	t_texture	*tex;
 	int			*array;
-	char		*file_ppm = ft_strjoin(file, ".ppm");
 
-	ppm = ft_read_file(file_ppm);
-	ft_strdel(&file_ppm);
+	ppm = ft_read_file(file);
 	if (ppm == NULL)
 		return NULL;
 	else if (ppm[1] == NULL || ppm[2] == NULL || ppm[3] == NULL)
