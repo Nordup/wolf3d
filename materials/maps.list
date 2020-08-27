@@ -2,7 +2,7 @@ map(./materials/maps/42.fdf)
 {
 	name(42_fdf)
 	person_x(10)
-	person_y(10)
+	person_y(9.54)
 	person_alp(0)
 }
 map(./materials/maps/map1)

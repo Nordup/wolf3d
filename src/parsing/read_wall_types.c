@@ -47,7 +47,7 @@ t_wall_type	*read_wall_types(t_texture *tex) {
 	int i = 0;
 	while (list[i] != NULL) {
 		content = get_content(list[i]); // read type content
-		if (ft_strstr(list[i], "type")) {
+		if (ft_strnequ(list[i], "type", 4)) {
 			if (temp != NULL) {
 				add_wtype_back(&wtype, temp); // add previous
 			}
@@ -55,13 +55,13 @@ t_wall_type	*read_wall_types(t_texture *tex) {
 			temp->type = ft_atoi(content);
 		}
 		// read fields
-		if (ft_strstr(list[i], "north"))
+		if (ft_strnequ(list[i], "\tnorth", 6))
 			temp->north = find_texture(tex, content);
-		else if (ft_strstr(list[i], "south"))
+		else if (ft_strnequ(list[i], "\tsouth", 6))
 			temp->south =  find_texture(tex, content);
-		else if (ft_strstr(list[i], "east"))
+		else if (ft_strnequ(list[i], "\teast", 5))
 			temp->east =  find_texture(tex, content);
-		else if (ft_strstr(list[i], "west"))
+		else if (ft_strnequ(list[i], "\twest", 5))
 			temp->west =  find_texture(tex, content);
 		ft_strdel(&content);
 		i++;

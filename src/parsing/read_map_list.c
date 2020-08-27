@@ -95,13 +95,13 @@ t_map   *read_map_list(void) {
 		}
         else if (ft_strnequ(list[i], "\tperson_x", 9))
         {
-            temp->prsn.pnt.x = ft_atoi(content);
+            temp->prsn.pnt.x = ft_atof(content);
             if (content)
                 ft_strdel(&content);
         }
         else if (ft_strnequ(list[i], "\tperson_y", 9))
         {
-            temp->prsn.pnt.y = ft_atoi(content);
+            temp->prsn.pnt.y = ft_atof(content);
             if (content)
                 ft_strdel(&content);
         }

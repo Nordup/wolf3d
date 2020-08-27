@@ -84,6 +84,7 @@ void					update_step(t_prsn *person);
 
 // parsing
 int						*get_clr_array(char *line, int size);
+double                  *get_double_array(char *line, int size);
 int						*get_int_array(char *line, int size);
 char					*get_content(char *line);
 t_map					*read_map_list(void);

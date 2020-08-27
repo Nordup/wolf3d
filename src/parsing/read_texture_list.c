@@ -95,12 +95,12 @@ t_texture	*read_texture_list(void) {
 	
 	int i = 0;
 	while (list[i] != NULL) {
-		if (ft_strstr(list[i], "folder")) {
+		if (ft_strnequ(list[i], "folder", 6)) {
 			if (folder != NULL)
 				ft_strdel(&folder);
 			folder = get_content(list[i]);
 		}
-		else if (ft_strstr(list[i], "texture")) {
+		else if (ft_strnequ(list[i], "\ttexture", 8)) {
 			tex_name = get_content(list[i]);
 			path = ft_strjoin(folder, tex_name);
 			// read texture

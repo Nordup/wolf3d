@@ -32,6 +32,9 @@ struct				s_split{
 	int				start;
 };
 
+int                 ft_pow(int x, int y);
+double              ft_atof(char const *s);
+int                 ft_count_atof(char const *s, double *number);
 int					ft_count_atoi(char const *s, int *number);
 int					ft_open_read(char *name);
 int					get_next_line(const int fd, char **line);

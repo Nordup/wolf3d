@@ -4,6 +4,24 @@ int		get_rgb(int r, int g, int b) {
 	return ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff);
 }
 
+double     *get_double_array(char *line, int size) {
+    double 		*array;
+    double 		number;
+    int		i;
+    int		n;
+
+    i = 0;
+    n = 0;
+    number = 0;
+    array = (double *)malloc(sizeof(double ) * size);
+    while (n < size) {
+        i += ft_count_atof(line + i, &number);
+        array[n] = number;
+        n++;
+    }
+    return array;
+}
+
 int		*get_int_array(char *line, int size) {
 	int		*array;
 	int		number;

@@ -75,12 +75,16 @@ void	print_maps(t_map *map) {
             ft_putnbr(map->h);
 			ft_putstr(" ");
 			ft_putnbr(map->w);
-			for (int i = 0; i < map->h; i++) {
+            ft_putstr(" ");
+            //printf("x %f\n", map->prsn.pnt.x);
+            ft_putstr(" ");
+            //printf("y %f\n", map->prsn.pnt.y);
+			/*for (int i = 0; i < map->h; i++) {
 				for (int j = 0; j < map->w; j++) {
 					ft_putstr(" ");
 					ft_putnbr(map->box[i][j]);
 				}
-			}
+			}*/
 			ft_putstr("\n");
 
 			if (map->next == NULL)
