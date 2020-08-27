@@ -1,8 +1,7 @@
 #include "wolf3d.h"
 
-int		movement(t_wrld *world, SDL_Event *e) {
-	t_prsn	*pn = &world->map->prsn;
-	t_map	*m = world->map;
+int		movement(t_map *map, SDL_Event *e) {
+	t_prsn	*pn = &map->prsn;
 
 	const Uint8 *state = SDL_GetKeyboardState(NULL);
 	if (state[SDL_SCANCODE_RIGHT]) {
@@ -19,7 +18,7 @@ int		movement(t_wrld *world, SDL_Event *e) {
 		// update step
 		update_step(pn);
 		// if we don't have wall in the face
-		if (ray_casting(m, pn->pnt, pn->alp).dis > STEP) {
+		if (ray_casting(map, pn->pnt, pn->alp).dis > STEP) {
 			
 			// move forward
 			pn->pnt.x += pn->step.x;
@@ -30,7 +29,7 @@ int		movement(t_wrld *world, SDL_Event *e) {
 		// update step
 		update_step(pn);
 		// if we don't have wall in the back
-		if (ray_casting(m, pn->pnt, in_two_pi(pn->alp + PI)).dis > STEP) {
+		if (ray_casting(map, pn->pnt, in_two_pi(pn->alp + PI)).dis > STEP) {
 
 			// move back
 			pn->pnt.x -= pn->step.x;

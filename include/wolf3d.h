@@ -25,7 +25,7 @@
 # define WALL_TYPES_LIST    "./materials/wall_types.list"
 # define MAPS_LIST          "./materials/maps.list"
 
-int		movement(t_wrld *world, SDL_Event *e);
+int		movement(t_map *map, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
 # endif

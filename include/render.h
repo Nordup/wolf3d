@@ -18,7 +18,7 @@ typedef struct s_raycasting {
  * */
 t_rcasting	ray_casting(t_map *map, t_pnt pnt, float alp);
 float		in_two_pi(float alp);
-int 		rendering(Uint32 *img, t_wrld *wrld);
+int 		rendering(Uint32 *img, t_wrld *wrld, t_map *map);
 
 int			set_wall_texture(t_wrld *wrld, t_rcasting rc);
 int			wall_draw(Uint32 *img, t_wall *wall,  int column);

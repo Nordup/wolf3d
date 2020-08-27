@@ -8,14 +8,14 @@ map(./materials/maps/42.fdf)
 map(./materials/maps/map1)
 {
 	name(map1)
-	person_x(10)
-	person_y(10)
+	person_x(5)
+	person_y(5)
 	person_alp(90)
 }
 map(./materials/maps/map2)
 {
 	name(map2)
-	person_x(10)
-	person_y(10)
+	person_x(5)
+	person_y(5)
 	person_alp(90)
 }
