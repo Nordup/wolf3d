@@ -19,6 +19,49 @@ int		add_map_back(t_map **map, t_map *add) {
 	return 0;
 }
 
+t_map   *read_map(char *file_name) {
+    char		**file;
+    t_map   	*map;
+    int			*array;
+    int         begin = 1;
+
+    file = ft_read_file(file_name);
+    if (file == NULL)
+        return NULL;
+    else if (file[0] == NULL || file[1] == NULL)
+        return NULL;
+    // malloc tex
+    map = (t_map*)malloc(sizeof(t_map));
+    // read w and h
+    if ((array = get_int_array(file[0], 2)) == NULL)
+        return NULL;
+    map->h = array[0];
+    map->w = array[1];
+    // read clrs
+    int	i = begin;
+    map->box = (int**)malloc(sizeof(int*) * map->h);
+    while (file[i] != NULL) {
+        array = get_int_array(file[i], map->w);
+        if (array == NULL) {
+            free_int_matrix(&map->box, i - begin);
+            ft_strdel(&map->name);
+            free(map);
+            return NULL;
+        }
+        map->box[i - begin] = array;
+        i++;
+    }
+    if ((i - begin) != map->h) {
+        free_int_matrix(&map->box, i - begin);
+        ft_strdel(&map->name);
+        free(map);
+        return NULL;
+    }
+    if (file != NULL)
+        ft_str_arraydel(file);
+    return map;
+}
+
 t_map   *read_map_list(void) {
 	t_map	    *map;
 	t_map	    *temp;
@@ -73,6 +116,9 @@ t_map   *read_map_list(void) {
         
 		i++;
 	}
+	// add last map
+    if (temp != NULL)
+        add_map_back(&map, temp);
 	// free strings
 	if (list != NULL)
 		ft_str_arraydel(list);

@@ -28,6 +28,7 @@ void	print_wall_types(t_wall_type *wtype) {
 			else
 				ft_putstr("null");
 			ft_putstr("\n");
+
 			if (wtype->next == NULL)
 				break;
 			wtype = wtype->next;
@@ -43,10 +44,10 @@ void	print_textures(t_texture *tex) {
 		while (1) {
 			ft_putstr("\t");
 			ft_putstr(tex->name);
+            ft_putstr(" ");
+            ft_putnbr(tex->h);
 			ft_putstr(" ");
 			ft_putnbr(tex->w);
-			ft_putstr(" ");
-			ft_putnbr(tex->h);
 			/*for (int i = 0; i < tex->w; i++) {
 				for (int j = 0; j < tex->h; j++) {
 					ft_putstr(" ");
@@ -70,16 +71,16 @@ void	print_maps(t_map *map) {
 		while (1) {
 			ft_putstr("\t");
 			ft_putstr(map->name);
+            ft_putstr(" ");
+            ft_putnbr(map->h);
 			ft_putstr(" ");
 			ft_putnbr(map->w);
-			ft_putstr(" ");
-			ft_putnbr(map->h);
-			/*for (int i = 0; i < tex->w; i++) {
-				for (int j = 0; j < tex->h; j++) {
+			for (int i = 0; i < map->h; i++) {
+				for (int j = 0; j < map->w; j++) {
 					ft_putstr(" ");
-					ft_putnbr(tex->clr[i][j]);
+					ft_putnbr(map->box[i][j]);
 				}
-			}*/
+			}
 			ft_putstr("\n");
 
 			if (map->next == NULL)
@@ -110,7 +111,7 @@ t_wrld	*init_world(void) {
 	print_maps(world->map);
 
 	ft_putendl("Texture reading...");
-	world->tex = read_textures_list();
+	world->tex = read_texture_list();
 	print_textures(world->tex);
 
 	ft_putendl("Wall types reading...");

@@ -1,16 +1,18 @@
 #include "wolf3d.h"
 
-void	free_int_array(int	**array, int size) {
+void	free_int_matrix(int	***matrix, int size) {
 	int		i;
+	int     **del;
 
+	del = *matrix;
 	i = 0;
-	if (array) {
+	if (del) {
 		while (i < size) {
-			if (array[i])
-				free(array[i]);
+			if (del[i])
+				free(del[i]);
 			i++;
 		}
-		free(array);
+		free(del);
 	}
 }
 
@@ -37,6 +39,7 @@ t_texture	*read_texture(char *file, char *tex_name) {
 	char		**ppm;
 	t_texture	*tex;
 	int			*array;
+	int         begin = 3;
 
 	ppm = ft_read_file(file);
 	if (ppm == NULL)
@@ -49,24 +52,24 @@ t_texture	*read_texture(char *file, char *tex_name) {
 	// read w and h
 	if ((array = get_int_array(ppm[1], 2)) == NULL)
 		return NULL;
-	tex->w = array[0];
-	tex->h = array[1];
+    tex->w = array[0];
+    tex->h = array[1];
 	// read clrs
-	int	i = 3;
-	tex->clr = (int**)malloc(sizeof(int*) * tex->w);
+	int	i = begin;
+	tex->clr = (int**)malloc(sizeof(int*) * tex->h);
 	while (ppm[i] != NULL) {
-		array = get_clr_array(ppm[i], tex->h);
+		array = get_clr_array(ppm[i], tex->w);
 		if (array == NULL) {
-			free_int_array(tex->clr, i - 3);
+            free_int_matrix(&tex->clr, i - begin);
 			ft_strdel(&tex->name);
 			free(tex);
 			return NULL;
 		}
-		tex->clr[i - 3] = array;
+		tex->clr[i - begin] = array;
 		i++;
 	}
-	if ((i - 3) != tex->w) {
-		free_int_array(tex->clr, i - 3);
+	if ((i - begin) != tex->h) {
+        free_int_matrix(&tex->clr, i - begin);
 		ft_strdel(&tex->name);
 		free(tex);
 		return NULL;
@@ -76,7 +79,7 @@ t_texture	*read_texture(char *file, char *tex_name) {
 	return tex;
 }
 
-t_texture	*read_textures_list(void) {
+t_texture	*read_texture_list(void) {
 	t_texture	*tex;
 	t_texture	*temp;
 	char		**list;
