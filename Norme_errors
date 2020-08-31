@@ -1,0 +1,156 @@
+Norme: /Users/mashley/Desktop/Nordup/src/display/init_sdl.c
+Error: 42 header not at top of the file
+Error (line 4): function init_sdl has 30 lines
+Error (line 4): declarations in init_sdl are bad aligned
+Error (line 12): C++ comment
+Error (line 24): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/display/quit_sdl.c
+Error: 42 header not at top of the file
+Error (line 22): bad spacing before quit
+
+Norme: /Users/mashley/Desktop/Nordup/src/parsing/get_content.c
+Error: 42 header not at top of the file
+
+Norme: /Users/mashley/Desktop/Nordup/src/parsing/get_int_array.c
+Error: 42 header not at top of the file
+
+Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_map_list.c
+Error: 42 header not at top of the file
+Error (line 25): function read_map has 45 lines
+Error (line 39): bad indentation
+Error (line 39): C++ comment
+Error (line 41): C++ comment
+Error (line 46): C++ comment
+Error (line 74): function read_map_list has 60 lines
+Error (line 96): C++ comment
+Error (line 96): bad indentation
+Error (line 104): C++ comment
+Error (line 105): C++ comment
+Error (line 129): C++ comment
+Error (line 132): C++ comment
+Error (line 132): bad indentation
+
+Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_texture_list.c
+Error: 42 header not at top of the file
+Error (line 44): function read_texture has 46 lines
+Error (line 58): bad indentation
+Error (line 58): C++ comment
+Error (line 61): C++ comment
+Error (line 66): C++ comment
+Error (line 94): function read_texture_list has 42 lines
+Error (line 94, col 0): read_texture_list has 7 variables
+Error (line 99): C++ comment
+Error (line 122): C++ comment
+Error (line 126): C++ comment
+Error (line 126): bad indentation
+Error (line 127): C++ comment
+Error (line 127): bad indentation
+Error (line 132): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_wall_types.c
+Error: 42 header not at top of the file
+Error (line 40): function read_wall_types has 43 lines
+Error (line 56): C++ comment
+Error (line 61): C++ comment
+Error (line 66): C++ comment
+Error (line 78): C++ comment
+Error (line 81): C++ comment
+Error (line 81): bad indentation
+
+Norme: /Users/mashley/Desktop/Nordup/src/render/ray_casting.c
+Error: 42 header not at top of the file
+Error (line 19): function horizontal has 51 lines
+Error (line 21): C++ comment
+Error (line 21, col 7): A not unixcase
+Error (line 27): C++ comment
+Error (line 28): C++ comment
+Error (line 29): C++ comment
+Error (line 63): bad indentation
+Error (line 74): function vertical has 50 lines
+Error (line 76): C++ comment
+Error (line 76, col 7): A not unixcase
+Error (line 82): C++ comment
+Error (line 83): C++ comment
+Error (line 135): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/render/rendering.c
+Error: 42 header not at top of the file
+Error (line 22): bad indentation
+Error (line 22): C++ comment
+Error (line 24): C++ comment
+Error (line 26): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/render/set_wall_texture.c
+Error: 42 header not at top of the file
+Error (line 75): function set_wall_texture has 27 lines
+Error (line 79): C++ comment
+Error (line 96): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/render/wall_draw.c
+Error: 42 header not at top of the file
+Error (line 3): function wall_draw has 27 lines
+Error (line 12): C++ comment
+Error (line 18): C++ comment
+Error (line 25): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/world/free_world.c
+Error: 42 header not at top of the file
+Error (line 3): function free_world has 31 lines
+Error (line 7): C++ comment
+Error (line 10): C++ comment
+Error (line 10): bad indentation
+Error (line 13): C++ comment
+Error (line 13): bad indentation
+Error (line 27): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/world/init_world.c
+Error: 42 header not at top of the file
+Error (line 4): function print_wall_types has 37 lines
+Error (line 45): function print_textures has 27 lines
+Error (line 58): comment not well formatted
+Error (line 58): comment not well placed
+Error (line 76): function print_maps has 31 lines
+Error (line 90): C++ comment
+Error (line 92): C++ comment
+Error (line 93): comment not well formatted
+Error (line 93): comment not well placed
+
+Norme: /Users/mashley/Desktop/Nordup/src/world/newpnt.c
+Error: 42 header not at top of the file
+
+Norme: /Users/mashley/Desktop/Nordup/src/game.c
+Error: 42 header not at top of the file
+Error (line 4): function change_map has 31 lines
+Error (line 39): function game has 30 lines
+Error (line 49): C++ comment
+Error (line 49): bad indentation
+Error (line 51): C++ comment
+Error (line 55): C++ comment
+Error (line 56): C++ comment
+Error (line 59): C++ comment
+Error (line 61): C++ comment
+Error (line 61): line has 85 characters
+Error (line 67): bad indentation
+Error (line 67): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/main.c
+Error: 42 header not at top of the file
+Error (line 15): C++ comment
+Error (line 21): bad indentation
+Error (line 21): C++ comment
+Error (line 24): C++ comment
+
+Norme: /Users/mashley/Desktop/Nordup/src/movement.c
+Error: 42 header not at top of the file
+Error (line 3): function movement has 42 lines
+Error (line 24): C++ comment
+Error (line 24): bad indentation
+Error (line 26): C++ comment
+Error (line 29): bad indentation
+Error (line 29): C++ comment
+Error (line 36): bad indentation
+Error (line 36): C++ comment
+Error (line 38): C++ comment
+Error (line 41): C++ comment
+Error (line 41): bad indentation

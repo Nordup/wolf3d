@@ -1,18 +1,20 @@
-# include "display.h"
-# define LOADING_IMAGE "./materials/loading/loading.bmp"
+#include "display.h"
+#define LOADING_IMAGE "./materials/loading/loading.bmp"
 
-
-t_sdl*	init_sdl(void)
+t_sdl	*init_sdl(void)
 {
-	t_sdl			*sdl;
-	Uint32			ren_flags;
+	t_sdl	*sdl;
+	Uint32	ren_flags;
+	SDL_Surface *image;
+	SDL_Texture	*texture;
 
 	sdl = (t_sdl*)malloc(sizeof(t_sdl));
 	sdl->image = (Uint32*)malloc(sizeof(Uint32) * WIN_SIZE);// window size
 	ren_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 		quit("SDL_Init Error");
-	if (!(sdl->win =SDL_CreateWindow("Wolf3D", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_W, WIN_H, SDL_WINDOW_SHOWN)))
+	if (!(sdl->win = SDL_CreateWindow("Wolf3D", SDL_WINDOWPOS_CENTERED,
+					SDL_WINDOWPOS_CENTERED, WIN_W, WIN_H, SDL_WINDOW_SHOWN)))
 		quit("SDL_CreateWindow Error");
 	if (!(sdl->ren = SDL_CreateRenderer(sdl->win, -1, ren_flags)))
 	{
@@ -20,8 +22,8 @@ t_sdl*	init_sdl(void)
 		quit("SDL_CreateRenderer Error");
 	}
 	// put loading image
-	SDL_Surface *image = SDL_LoadBMP(LOADING_IMAGE);
-	SDL_Texture	*texture = SDL_CreateTextureFromSurface(sdl->ren, image);
+	image = SDL_LoadBMP(LOADING_IMAGE);
+	texture = SDL_CreateTextureFromSurface(sdl->ren, image);
 	SDL_RenderCopy(sdl->ren, texture, NULL, NULL);
 	SDL_RenderPresent(sdl->ren);
 	if (!(sdl->tex = SDL_CreateTexture(sdl->ren, SDL_PIXELFORMAT_ARGB8888,
@@ -30,5 +32,5 @@ t_sdl*	init_sdl(void)
 		SDL_DestroyWindow(sdl->win);
 		quit("SDL_CreateTexture Error");
 	}
-	return sdl;
+	return (sdl);
 }

@@ -1,21 +1,27 @@
 #include "render.h"
 
-float	in_two_pi(float alp) {
+float	in_two_pi(float alp)
+{
 	if (alp > PI2)
 		alp = alp - PI2;
 	else if (alp < 0)
 		alp = alp + PI2;
-	return alp;
+	return (alp);
 }
 
-int		rendering(Uint32 *img, t_wrld *wrld, t_map *map) {
-	int		i = 0;
-	float	alp = map->prsn.alp - (FOV/2) * RD;
+int		rendering(Uint32 *img, t_wrld *wrld, t_map *map)
+{
+	int			i;
+	float		alp;
+	t_rcasting	rcast;
 
-	while (i < WIN_W) {
+	alp = map->prsn.alp - (FOV / 2) * RD;
+	i = 0;
+	while (i < WIN_W)
+	{
 		// find distance to wall
-		t_rcasting rcast = ray_casting(map, map->prsn.pnt, in_two_pi(alp));
-		 // fish aye fixing
+		rcast = ray_casting(map, map->prsn.pnt, in_two_pi(alp));
+		// fish aye fixing
 		rcast.dis *= cos(in_two_pi(map->prsn.alp - alp));
 		// find the wall size
 		wrld->wall->size = WALL_SIZE / rcast.dis;
@@ -26,5 +32,5 @@ int		rendering(Uint32 *img, t_wrld *wrld, t_map *map) {
 		alp += (FOV * RD) / WIN_W;
 		i++;
 	}
-	return 0;
+	return (0);
 }
