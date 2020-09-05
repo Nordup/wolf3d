@@ -55,6 +55,7 @@ int			get_color(t_texture *tex, int w, int i, int size)
 	float h;
 	float x;
 
+
 	if (size < WIN_H)
 	{
 		win_wall = (float)i / size;
@@ -83,7 +84,7 @@ int			set_wall_texture(t_wrld *wrld, t_rcasting rc)
 	tex = cardinal_tex(wtype, rc.cardinal_point);
 	w = get_width(rc);
 	i = 0;
-	if (tex == NULL)
+	if (tex == NULL || tex->clr == NULL || tex->name == NULL)
 	{
 		while (i < wrld->wall->size && i < WIN_H)
 		{
