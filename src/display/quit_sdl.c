@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "display.h"
 
-int	quit_sdl(t_sdl *sdl)
+int		quit_sdl(t_sdl *sdl)
 {
 	if (sdl)
 	{
@@ -31,7 +31,8 @@ int	quit_sdl(t_sdl *sdl)
 /*
 ** printf("%s: %s\n", s, SDL_GetError());
 */
-int	quit(char *s)
+
+int		quit(char *s)
 {
 	ft_putstr(s);
 	ft_putstr(": ");

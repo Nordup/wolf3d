@@ -97,4 +97,8 @@ t_texture				*read_texture_list(void);
 t_wall_type				*read_wall_types(t_texture *tex);
 void					free_int_matrix(int	***matrix, int size);
 
+void					print_wall_types(t_wall_type *wtype);
+void					print_textures(t_texture *tex);
+void					print_maps(t_map *map);
+
 #endif

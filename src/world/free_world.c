@@ -12,17 +12,24 @@
 
 #include "world.h"
 
+void		free_wall(t_wall *wall)
+{
+	if (wall != NULL)
+	{
+		if (wall->tex != NULL)
+			free(wall->tex);
+		free(wall);
+	}
+}
+
 void		free_world(t_wrld *world)
 {
 	int	i;
 
-	// free world
 	if (world != NULL)
 	{
-		// free map
 		if (world->map != NULL)
 		{
-			// free box
 			if (world->map->box != NULL)
 			{
 				i = 0;
@@ -36,13 +43,7 @@ void		free_world(t_wrld *world)
 			}
 			free(world->map);
 		}
-		// free texture
-		if (world->wall != NULL)
-		{
-			if (world->wall->tex != NULL)
-				free(world->wall->tex);
-			free(world->wall);
-		}
+		free_wall(world->wall);
 		free(world);
 	}
 }

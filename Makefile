@@ -25,7 +25,7 @@ DIR_SDL2_HEAD = $(DIR_SDL2)/Headers/
 SOURCES =	main.c game.c movement.c \
 			$(addprefix display/, init_sdl.c quit_sdl.c) \
 			$(addprefix render/, rendering.c ray_casting.c wall_draw.c set_wall_texture.c) \
-			$(addprefix world/, free_world.c init_world.c newpnt.c) \
+			$(addprefix world/, free_world.c init_world.c newpnt.c world_print.c) \
 			$(addprefix parsing/, read_texture_list.c read_wall_types.c \
 						get_int_array.c get_content.c read_map_list.c)
 
