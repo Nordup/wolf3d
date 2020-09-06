@@ -12,28 +12,6 @@
 
 #include "wolf3d.h"
 
-int		add_map_back(t_map **map, t_map *add)
-{
-	t_map	*temp;
-
-	if (add == NULL)
-		return (-1);
-	else
-		add->next = NULL;
-	if (*map == NULL)
-	{
-		*map = add;
-		return (0);
-	}
-	temp = *map;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
-	temp->next = add;
-	return (0);
-}
-
 t_map	*read_map(char *file_name)
 {
 	char	**file;
@@ -48,14 +26,11 @@ t_map	*read_map(char *file_name)
 		return (NULL);
 	else if (file[0] == NULL || file[1] == NULL)
 		return (NULL);
-	// malloc tex
 	map = (t_map*)malloc(sizeof(t_map));
-	// read w and h
 	if ((array = get_int_array(file[0], 2)) == NULL)
 		return (NULL);
 	map->h = array[0];
 	map->w = array[1];
-	// read clrs
 	i = begin;
 	map->box = (int**)malloc(sizeof(int*) * map->h);
 	while (file[i] != NULL)
@@ -105,17 +80,12 @@ t_map	*read_map_list(void)
 		{
 			if (temp != NULL)
 				add_map_back(&map, temp);
-			// read map
 			temp = read_map(content);
 			if (content)
 				ft_strdel(&content);
 		}
 		else if (ft_strnequ(list[i], "\tname", 5))
-		{
 			temp->name = content;
-			// free strings
-			//ft_strdel(&name); // added to map->name
-		}
 		else if (ft_strnequ(list[i], "\tperson_x", 9))
 		{
 			temp->prsn.pnt.x = ft_atof(content);
@@ -138,10 +108,8 @@ t_map	*read_map_list(void)
 			ft_strdel(&content);
 		i++;
 	}
-	// add last map
 	if (temp != NULL)
 		add_map_back(&map, temp);
-	// free strings
 	if (list != NULL)
 		ft_str_arraydel(list);
 	return (map);

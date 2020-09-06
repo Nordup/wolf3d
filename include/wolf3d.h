@@ -36,7 +36,12 @@
 # define WALL_TYPES_LIST	"./materials/wall_types.list"
 # define MAPS_LIST			"./materials/maps.list"
 
-int		movement(t_map *map, SDL_Event *e);
-int		game(t_sdl *sdl, t_wrld *world);
+int			movement(t_map *map, SDL_Event *e);
+int			game(t_sdl *sdl, t_wrld *world);
+t_texture	*find_texture(t_texture *tex, char *name);
+int			add_wtype_back(t_wall_type **wtype, t_wall_type *add);
+void		free_int_matrix(int ***matrix, int size);
+int			add_tex_back(t_texture **tex, t_texture *add);
+int			add_map_back(t_map **map, t_map *add);
 
 #endif

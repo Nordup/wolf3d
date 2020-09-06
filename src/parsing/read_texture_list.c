@@ -12,47 +12,6 @@
 
 #include "wolf3d.h"
 
-void		free_int_matrix(int ***matrix, int size)
-{
-	int		i;
-	int		**del;
-
-	del = *matrix;
-	i = 0;
-	if (del)
-	{
-		while (i < size)
-		{
-			if (del[i])
-				free(del[i]);
-			i++;
-		}
-		free(del);
-	}
-}
-
-int			add_tex_back(t_texture **tex, t_texture *add)
-{
-	t_texture	*temp;
-
-	if (add == NULL)
-		return (-1);
-	else
-		add->next = NULL;
-	if (*tex == NULL)
-	{
-		*tex = add;
-		return (0);
-	}
-	temp = *tex;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
-	temp->next = add;
-	return (0);
-}
-
 t_texture	*read_texture(char *file, char *tex_name)
 {
 	char		**ppm;
