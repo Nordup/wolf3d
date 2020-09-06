@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/06 12:03:15 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/06 12:08:33 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DISPLAY_H
 # define DISPLAY_H
 
-#ifdef __APPLE__
-#include <SDL.h>
-#else
-#include <SDL2/SDL.h>
-#endif
+# ifdef __APPLE__
+#  include <SDL.h>
+# else
+#  include <SDL2/SDL.h>
+# endif
 
 # define WIN_W 1500
 # define WIN_H 900
@@ -19,18 +31,17 @@
 # define WALL_CLR (Uint32) 0x747a78
 # define FLOOR (Uint32) 0x5ab514
 
-
-typedef struct	s_sdl
+typedef struct		s_sdl
 {
 	SDL_Renderer	*ren;
 	SDL_Window		*win;
 	SDL_Surface		*surface;
 	SDL_Texture		*tex;
 	Uint32			*image;
-}				t_sdl;
+}					t_sdl;
 
-int		quit(char *s);
-int		quit_sdl(t_sdl *sdl);
-t_sdl*	init_sdl(void);
+int					quit(char *s);
+int					quit_sdl(t_sdl *sdl);
+t_sdl				*init_sdl(void);
 
-# endif
+#endif

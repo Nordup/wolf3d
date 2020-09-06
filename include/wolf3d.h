@@ -1,4 +1,16 @@
-# ifndef WOLF3D_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wolf3d.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/06 12:04:20 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/06 12:04:24 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WOLF3D_H
 # define WOLF3D_H
 
 # include <stdlib.h>
@@ -10,7 +22,7 @@
 # include "render.h"
 
 # define WALL_SIZE 600
-# define EPS 0.0001 // epsilon
+# define EPS 0.0001
 
 # define PI 3.14159265359
 # define PI_2 PI / 2
@@ -27,4 +39,4 @@
 int		movement(t_map *map, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);
 
-# endif
+#endif

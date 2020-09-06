@@ -72,6 +72,6 @@ fclean: clean
 	rm -rf $(DIR_BUILD)
 	make fclean -C  $(DIR_LIB)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re

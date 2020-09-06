@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/06 12:25:34 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/06 12:25:36 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 #define READ_BUFF 100
 
-t_map	*change_map(t_wrld *world, t_map *map)
+void	print_map_list(t_wrld *world)
 {
 	t_map	*tmp;
-	char	line[READ_BUFF];
 
 	tmp = world->map;
 	ft_putendl("Choose one of:");
@@ -17,6 +28,14 @@ t_map	*change_map(t_wrld *world, t_map *map)
 		tmp = tmp->next;
 	}
 	ft_putstr("Your choice is: ");
+}
+
+t_map	*change_map(t_wrld *world, t_map *map)
+{
+	t_map	*tmp;
+	char	line[READ_BUFF];
+
+	print_map_list(world);
 	read(0, &line, READ_BUFF);
 	tmp = world->map;
 	while (1)
@@ -36,6 +55,14 @@ t_map	*change_map(t_wrld *world, t_map *map)
 	return (map);
 }
 
+void	present_picture(t_sdl *sdl)
+{
+	SDL_UpdateTexture(sdl->tex, NULL, sdl->image, sizeof(Uint32) * WIN_W);
+	SDL_RenderClear(sdl->ren);
+	SDL_RenderCopy(sdl->ren, sdl->tex, NULL, NULL);
+	SDL_RenderPresent(sdl->ren);
+}
+
 int		game(t_sdl *sdl, t_wrld *world)
 {
 	SDL_Event	e;
@@ -46,25 +73,18 @@ int		game(t_sdl *sdl, t_wrld *world)
 	map = world->map;
 	while (!quit)
 	{
-		// render new image
 		rendering(sdl->image, world, map);
-		// update window picture
-		SDL_UpdateTexture(sdl->tex, NULL, sdl->image, sizeof(Uint32) * WIN_W);
-		SDL_RenderClear(sdl->ren);
-		SDL_RenderCopy(sdl->ren, sdl->tex, NULL, NULL);
-		SDL_RenderPresent(sdl->ren); // put to window
-		// get event
+		present_picture(sdl);
 		while (SDL_PollEvent(&e))
 		{
-			if (e.type == SDL_QUIT)// red button
+			if (e.type == SDL_QUIT)
 				quit = TRUE;
-			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)// Esc
+			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)
 				quit = TRUE;
 			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_m)
 				map = change_map(world, map);
 			else
 				movement(map, &e);
-			//printf("%d\n", e.type);
 		}
 	}
 	return (0);

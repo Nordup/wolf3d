@@ -1,86 +1,10 @@
-Norme: ./ libraries/libft/.ft_atof.c.swp 
-Warning: Not a valid file
-Norme: ./ libraries/libft/.libft.h.swp 
-Warning: Not a valid file
-Norme: ./ libraries/libft/CMakeLists.txt 
-Warning: Not a valid file
-Norme: ./ libraries/libft/HomeCMakeLists.txt 
-Warning: Not a valid file
-Norme: ./ libraries/libft/Makefile 
-Warning: Not a valid file
-Norme: ./ libraries/libft/SchoolCMakeLists.txt 
-Warning: Not a valid file
-Norme: libraries/libft/ft_abs.c
-Norme: libraries/libft/ft_dellist.c
-Norme: libraries/libft/ft_count_atof.c
-Norme: libraries/libft/ft_bzero.c
-Norme: libraries/libft/ft_intlen.c
-Norme: libraries/libft/ft_isnumber.c
-Norme: libraries/libft/ft_issign.c
-Norme: libraries/libft/ft_isdigit.c
-Norme: libraries/libft/ft_atof.c
-Norme: libraries/libft/ft_isspace.c
-Norme: libraries/libft/ft_atoi.c
-Norme: libraries/libft/ft_lstiter.c
-Norme: libraries/libft/ft_isalnum.c
-Norme: libraries/libft/ft_lstdelone.c
-Norme: libraries/libft/ft_isalpha.c
-Norme: libraries/libft/ft_memdel.c
-Norme: libraries/libft/ft_memalloc.c
-Norme: libraries/libft/ft_lstnew.c
-Norme: libraries/libft/ft_lstadd.c
-Norme: libraries/libft/ft_memcpy.c
-Norme: libraries/libft/ft_putendl_fd.c
-Norme: libraries/libft/ft_open_read.c
-Norme: libraries/libft/ft_itoa.c
-Norme: libraries/libft/ft_memset.c
-Norme: libraries/libft/ft_count_atoi.c
-Norme: libraries/libft/ft_memchr.c
-Norme: libraries/libft/ft_putendl.c
-Norme: libraries/libft/ft_strclr.c
-Norme: libraries/libft/ft_putstr.c
-Norme: libraries/libft/ft_isprint.c
-Norme: libraries/libft/ft_putchar.c
-Norme: libraries/libft/ft_strdel.c
-Norme: libraries/libft/ft_putnbr_fd.c
-Norme: libraries/libft/ft_memccpy.c
-Norme: libraries/libft/ft_strchr.c
-Norme: libraries/libft/ft_strcpy.c
-Norme: libraries/libft/ft_pow.c
-Norme: libraries/libft/ft_strlen.c
-Norme: libraries/libft/ft_striteri.c
-Norme: libraries/libft/ft_lstmap.c
-Norme: libraries/libft/ft_strjoin.c
-Norme: libraries/libft/ft_strmap.c
-Norme: libraries/libft/ft_putstr_fd.c
-Norme: libraries/libft/ft_atoi_base.c
-Norme: libraries/libft/ft_strnequ.c
-Norme: libraries/libft/ft_isascii.c
-Norme: libraries/libft/ft_strncpy.c
-Norme: libraries/libft/ft_strrchr.c
-Norme: libraries/libft/ft_strdup.c
-Norme: libraries/libft/ft_tolower.c
-Norme: libraries/libft/ft_strnstr.c
-Norme: libraries/libft/ft_memmove.c
-Norme: libraries/libft/get_next_line.h
-Norme: libraries/libft/ft_lstdel.c
-Norme: libraries/libft/ft_putnbr.c
-Norme: libraries/libft/ft_strmapi.c
-Norme: libraries/libft/ft_strcmp.c
-Norme: libraries/libft/ft_memcmp.c
-Norme: libraries/libft/ft_strtrim.c
-Norme: libraries/libft/ft_putchar_fd.c
-Norme: libraries/libft/ft_strlcat.c
-Norme: libraries/libft/ft_read_file.c
-Norme: libraries/libft/ft_strcat.c
-Norme: libraries/libft/ft_striter.c
-Norme: libraries/libft/ft_strnew.c
-Norme: libraries/libft/ft_strequ.c
-Norme: libraries/libft/ft_toupper.c
-Norme: libraries/libft/ft_strncat.c
-Norme: libraries/libft/ft_strncmp.c
-Norme: libraries/libft/ft_strsub.c
-Norme: libraries/libft/ft_strstr.c
-Norme: libraries/libft/ft_strsplit.c
-Norme: libraries/libft/get_next_line.c
-Norme: libraries/libft/libft.h
+Norme: include/wolf3d.h
+Norme: include/display.h
+Norme: include/render.h
+Error (line 18, col 0): cardinal_points is not well prefixed.
+Error (line 25): comment not well formatted
+Error (line 25): comment not well placed
+Error (line 31): comment not well formatted
+Error (line 36, col 3): bad spacing
+Error (line 38, col 43): bad spacing
+Norme: include/world.h
