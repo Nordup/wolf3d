@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_count_atoi.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/06 11:48:57 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/06 11:49:46 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_count_atoi(char const *s, int *number)
@@ -23,5 +35,5 @@ int		ft_count_atoi(char const *s, int *number)
 		i++;
 	}
 	*number = n * log;
-	return i;
+	return (i);
 }

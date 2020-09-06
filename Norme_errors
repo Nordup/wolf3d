@@ -1,156 +1,86 @@
-Norme: /Users/mashley/Desktop/Nordup/src/display/init_sdl.c
-Error: 42 header not at top of the file
-Error (line 4): function init_sdl has 30 lines
-Error (line 4): declarations in init_sdl are bad aligned
-Error (line 12): C++ comment
-Error (line 24): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/display/quit_sdl.c
-Error: 42 header not at top of the file
-Error (line 22): bad spacing before quit
-
-Norme: /Users/mashley/Desktop/Nordup/src/parsing/get_content.c
-Error: 42 header not at top of the file
-
-Norme: /Users/mashley/Desktop/Nordup/src/parsing/get_int_array.c
-Error: 42 header not at top of the file
-
-Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_map_list.c
-Error: 42 header not at top of the file
-Error (line 25): function read_map has 45 lines
-Error (line 39): bad indentation
-Error (line 39): C++ comment
-Error (line 41): C++ comment
-Error (line 46): C++ comment
-Error (line 74): function read_map_list has 60 lines
-Error (line 96): C++ comment
-Error (line 96): bad indentation
-Error (line 104): C++ comment
-Error (line 105): C++ comment
-Error (line 129): C++ comment
-Error (line 132): C++ comment
-Error (line 132): bad indentation
-
-Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_texture_list.c
-Error: 42 header not at top of the file
-Error (line 44): function read_texture has 46 lines
-Error (line 58): bad indentation
-Error (line 58): C++ comment
-Error (line 61): C++ comment
-Error (line 66): C++ comment
-Error (line 94): function read_texture_list has 42 lines
-Error (line 94, col 0): read_texture_list has 7 variables
-Error (line 99): C++ comment
-Error (line 122): C++ comment
-Error (line 126): C++ comment
-Error (line 126): bad indentation
-Error (line 127): C++ comment
-Error (line 127): bad indentation
-Error (line 132): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/parsing/read_wall_types.c
-Error: 42 header not at top of the file
-Error (line 40): function read_wall_types has 43 lines
-Error (line 56): C++ comment
-Error (line 61): C++ comment
-Error (line 66): C++ comment
-Error (line 78): C++ comment
-Error (line 81): C++ comment
-Error (line 81): bad indentation
-
-Norme: /Users/mashley/Desktop/Nordup/src/render/ray_casting.c
-Error: 42 header not at top of the file
-Error (line 19): function horizontal has 51 lines
-Error (line 21): C++ comment
-Error (line 21, col 7): A not unixcase
-Error (line 27): C++ comment
-Error (line 28): C++ comment
-Error (line 29): C++ comment
-Error (line 63): bad indentation
-Error (line 74): function vertical has 50 lines
-Error (line 76): C++ comment
-Error (line 76, col 7): A not unixcase
-Error (line 82): C++ comment
-Error (line 83): C++ comment
-Error (line 135): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/render/rendering.c
-Error: 42 header not at top of the file
-Error (line 22): bad indentation
-Error (line 22): C++ comment
-Error (line 24): C++ comment
-Error (line 26): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/render/set_wall_texture.c
-Error: 42 header not at top of the file
-Error (line 75): function set_wall_texture has 27 lines
-Error (line 79): C++ comment
-Error (line 96): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/render/wall_draw.c
-Error: 42 header not at top of the file
-Error (line 3): function wall_draw has 27 lines
-Error (line 12): C++ comment
-Error (line 18): C++ comment
-Error (line 25): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/world/free_world.c
-Error: 42 header not at top of the file
-Error (line 3): function free_world has 31 lines
-Error (line 7): C++ comment
-Error (line 10): C++ comment
-Error (line 10): bad indentation
-Error (line 13): C++ comment
-Error (line 13): bad indentation
-Error (line 27): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/world/init_world.c
-Error: 42 header not at top of the file
-Error (line 4): function print_wall_types has 37 lines
-Error (line 45): function print_textures has 27 lines
-Error (line 58): comment not well formatted
-Error (line 58): comment not well placed
-Error (line 76): function print_maps has 31 lines
-Error (line 90): C++ comment
-Error (line 92): C++ comment
-Error (line 93): comment not well formatted
-Error (line 93): comment not well placed
-
-Norme: /Users/mashley/Desktop/Nordup/src/world/newpnt.c
-Error: 42 header not at top of the file
-
-Norme: /Users/mashley/Desktop/Nordup/src/game.c
-Error: 42 header not at top of the file
-Error (line 4): function change_map has 31 lines
-Error (line 39): function game has 30 lines
-Error (line 49): C++ comment
-Error (line 49): bad indentation
-Error (line 51): C++ comment
-Error (line 55): C++ comment
-Error (line 56): C++ comment
-Error (line 59): C++ comment
-Error (line 61): C++ comment
-Error (line 61): line has 85 characters
-Error (line 67): bad indentation
-Error (line 67): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/main.c
-Error: 42 header not at top of the file
-Error (line 15): C++ comment
-Error (line 21): bad indentation
-Error (line 21): C++ comment
-Error (line 24): C++ comment
-
-Norme: /Users/mashley/Desktop/Nordup/src/movement.c
-Error: 42 header not at top of the file
-Error (line 3): function movement has 42 lines
-Error (line 24): C++ comment
-Error (line 24): bad indentation
-Error (line 26): C++ comment
-Error (line 29): bad indentation
-Error (line 29): C++ comment
-Error (line 36): bad indentation
-Error (line 36): C++ comment
-Error (line 38): C++ comment
-Error (line 41): C++ comment
-Error (line 41): bad indentation
+Norme: ./ libraries/libft/.ft_atof.c.swp 
+Warning: Not a valid file
+Norme: ./ libraries/libft/.libft.h.swp 
+Warning: Not a valid file
+Norme: ./ libraries/libft/CMakeLists.txt 
+Warning: Not a valid file
+Norme: ./ libraries/libft/HomeCMakeLists.txt 
+Warning: Not a valid file
+Norme: ./ libraries/libft/Makefile 
+Warning: Not a valid file
+Norme: ./ libraries/libft/SchoolCMakeLists.txt 
+Warning: Not a valid file
+Norme: libraries/libft/ft_abs.c
+Norme: libraries/libft/ft_dellist.c
+Norme: libraries/libft/ft_count_atof.c
+Norme: libraries/libft/ft_bzero.c
+Norme: libraries/libft/ft_intlen.c
+Norme: libraries/libft/ft_isnumber.c
+Norme: libraries/libft/ft_issign.c
+Norme: libraries/libft/ft_isdigit.c
+Norme: libraries/libft/ft_atof.c
+Norme: libraries/libft/ft_isspace.c
+Norme: libraries/libft/ft_atoi.c
+Norme: libraries/libft/ft_lstiter.c
+Norme: libraries/libft/ft_isalnum.c
+Norme: libraries/libft/ft_lstdelone.c
+Norme: libraries/libft/ft_isalpha.c
+Norme: libraries/libft/ft_memdel.c
+Norme: libraries/libft/ft_memalloc.c
+Norme: libraries/libft/ft_lstnew.c
+Norme: libraries/libft/ft_lstadd.c
+Norme: libraries/libft/ft_memcpy.c
+Norme: libraries/libft/ft_putendl_fd.c
+Norme: libraries/libft/ft_open_read.c
+Norme: libraries/libft/ft_itoa.c
+Norme: libraries/libft/ft_memset.c
+Norme: libraries/libft/ft_count_atoi.c
+Norme: libraries/libft/ft_memchr.c
+Norme: libraries/libft/ft_putendl.c
+Norme: libraries/libft/ft_strclr.c
+Norme: libraries/libft/ft_putstr.c
+Norme: libraries/libft/ft_isprint.c
+Norme: libraries/libft/ft_putchar.c
+Norme: libraries/libft/ft_strdel.c
+Norme: libraries/libft/ft_putnbr_fd.c
+Norme: libraries/libft/ft_memccpy.c
+Norme: libraries/libft/ft_strchr.c
+Norme: libraries/libft/ft_strcpy.c
+Norme: libraries/libft/ft_pow.c
+Norme: libraries/libft/ft_strlen.c
+Norme: libraries/libft/ft_striteri.c
+Norme: libraries/libft/ft_lstmap.c
+Norme: libraries/libft/ft_strjoin.c
+Norme: libraries/libft/ft_strmap.c
+Norme: libraries/libft/ft_putstr_fd.c
+Norme: libraries/libft/ft_atoi_base.c
+Norme: libraries/libft/ft_strnequ.c
+Norme: libraries/libft/ft_isascii.c
+Norme: libraries/libft/ft_strncpy.c
+Norme: libraries/libft/ft_strrchr.c
+Norme: libraries/libft/ft_strdup.c
+Norme: libraries/libft/ft_tolower.c
+Norme: libraries/libft/ft_strnstr.c
+Norme: libraries/libft/ft_memmove.c
+Norme: libraries/libft/get_next_line.h
+Norme: libraries/libft/ft_lstdel.c
+Norme: libraries/libft/ft_putnbr.c
+Norme: libraries/libft/ft_strmapi.c
+Norme: libraries/libft/ft_strcmp.c
+Norme: libraries/libft/ft_memcmp.c
+Norme: libraries/libft/ft_strtrim.c
+Norme: libraries/libft/ft_putchar_fd.c
+Norme: libraries/libft/ft_strlcat.c
+Norme: libraries/libft/ft_read_file.c
+Norme: libraries/libft/ft_strcat.c
+Norme: libraries/libft/ft_striter.c
+Norme: libraries/libft/ft_strnew.c
+Norme: libraries/libft/ft_strequ.c
+Norme: libraries/libft/ft_toupper.c
+Norme: libraries/libft/ft_strncat.c
+Norme: libraries/libft/ft_strncmp.c
+Norme: libraries/libft/ft_strsub.c
+Norme: libraries/libft/ft_strstr.c
+Norme: libraries/libft/ft_strsplit.c
+Norme: libraries/libft/get_next_line.c
+Norme: libraries/libft/libft.h

@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/06 11:50:52 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/06 11:52:01 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int     ft_pow(int x, int y)
+int		ft_pow(int x, int y)
 {
-    int     i;
-    int     result;
+	int		i;
+	int		result;
 
-    i = 0;
-    result = x;
-    while (i < y)
-    {
-        result *= x;
-        i++;
-    }
-    return result;
+	i = 0;
+	result = x;
+	while (i < y)
+	{
+		result *= x;
+		i++;
+	}
+	return (result);
 }

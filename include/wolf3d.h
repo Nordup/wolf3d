@@ -1,10 +1,9 @@
 # ifndef WOLF3D_H
 # define WOLF3D_H
 
-# include <stdio.h> // malloc
-# include <stdlib.h> // free
+# include <stdlib.h>
 # include <math.h>
-# include <fcntl.h> // read/write flags
+# include <fcntl.h>
 # include "libft.h"
 # include "display.h"
 # include "world.h"
@@ -17,13 +16,13 @@
 # define PI_2 PI / 2
 # define PI2 PI * 2
 # define PI3_2 3 * PI / 2
-# define RD PI / 180 // radians in degree
+# define RD PI / 180
 
 # define FOV 70
 
-# define TEXTURES_LIST      "./materials/textures.list"
-# define WALL_TYPES_LIST    "./materials/wall_types.list"
-# define MAPS_LIST          "./materials/maps.list"
+# define TEXTURES_LIST		"./materials/textures.list"
+# define WALL_TYPES_LIST	"./materials/wall_types.list"
+# define MAPS_LIST			"./materials/maps.list"
 
 int		movement(t_map *map, SDL_Event *e);
 int		game(t_sdl *sdl, t_wrld *world);

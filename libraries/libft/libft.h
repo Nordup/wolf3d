@@ -6,7 +6,7 @@
 /*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:04:31 by mfalkrea          #+#    #+#             */
-/*   Updated: 2019/11/05 19:10:07 by mfalkrea         ###   ########.fr       */
+/*   Updated: 2020/09/06 11:59:06 by mfalkrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ struct				s_split{
 	int				start;
 };
 
-int                 ft_pow(int x, int y);
-double              ft_atof(char const *s);
-int                 ft_count_atof(char const *s, double *number);
+int					ft_pow(int x, int y);
+double				ft_atof(char const *s);
+int					ft_count_atof(char const *s, double *number);
 int					ft_count_atoi(char const *s, int *number);
 int					ft_open_read(char *name);
 int					get_next_line(const int fd, char **line);
@@ -107,9 +107,8 @@ char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-//mashley
-int	ft_issign(int c);
-int	ft_isspace(int c);
-int	ft_isnumber(int c);
+int					ft_issign(int c);
+int					ft_isspace(int c);
+int					ft_isnumber(int c);
 
 #endif
