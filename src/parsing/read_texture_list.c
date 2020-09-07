@@ -26,15 +26,12 @@ t_texture	*read_texture(char *file, char *tex_name)
 		return (NULL);
 	else if (ppm[1] == NULL || ppm[2] == NULL || ppm[3] == NULL)
 		return (NULL);
-	// malloc tex
 	tex = (t_texture*)malloc(sizeof(t_texture));
 	tex->name = tex_name;
-	// read w and h
 	if ((array = get_int_array(ppm[1], 2)) == NULL)
 		return (NULL);
 	tex->w = array[0];
 	tex->h = array[1];
-	// read clrs
 	i = begin;
 	tex->clr = (int**)malloc(sizeof(int*) * tex->h);
 	while (ppm[i] != NULL)
@@ -67,7 +64,7 @@ t_texture	*read_texture_list(void)
 	t_texture	*tex;
 	t_texture	*temp;
 	char		**list;
-	char		*folder;//char *param[3] ?
+	char		*folder;
 	char		*tex_name;
 	char		*path;
 	int			i;
@@ -90,17 +87,13 @@ t_texture	*read_texture_list(void)
 		{
 			tex_name = get_content(list[i]);
 			path = ft_strjoin(folder, tex_name);
-			// read texture
 			temp = read_texture(path, tex_name);
 			if (temp != NULL)
 				add_tex_back(&tex, temp);
-			// free strings
-			//ft_strdel(&tex_name); // added to tex->name
 			ft_strdel(&path);
 		}
 		i++;
 	}
-	// free strings
 	if (folder != NULL)
 		ft_strdel(&folder);
 	if (list != NULL)
