@@ -20,7 +20,6 @@ void		define_horizontal_fields1(t_pnt *A, t_pnt *dlta, int *cardinal_point, t_pn
 	}
 }
 
-
 void		define_horizontal_fields2(t_pnt *A, t_map *map, t_pnt pnt, float alp)
 {
 	if (alp == PI)
