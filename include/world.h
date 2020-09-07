@@ -94,6 +94,7 @@ int						*get_int_array(char *line, int size);
 char					*get_content(char *line);
 t_map					*read_map(char *file_name);
 t_map					*read_map_list(void);
+t_texture				*read_texture(char *file, char *tex_name);
 t_texture				*read_texture_list(void);
 t_wall_type				*read_wall_types(t_texture *tex);
 void					free_int_matrix(int	***matrix, int size);

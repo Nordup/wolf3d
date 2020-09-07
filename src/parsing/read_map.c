@@ -17,41 +17,44 @@ int		new_maps(t_map **map, char ***file, char *file_name)
 	(*map)->box = (int**)malloc(sizeof(int*) * (*map)->h);
 }
 
-int		fill_map_box(t_map **map, char **file, int *i)
+int		fill_map_box(t_map **map, char **file, int begin)
 {
 	int		*array;
+	int		i;
 
-	while (file[*i] != NULL)
+	i = begin;
+	while (file[i] != NULL)
 	{
-		array = get_int_array(file[*i], (*map)->w);
+		array = get_int_array(file[i], (*map)->w);
 		if (array == NULL)
 		{
-			free_int_matrix(&(*map)->box, *i - 1);
+			free_int_matrix(&(*map)->box, i - begin);
 			ft_strdel(&(*map)->name);
 			free(map);
-			return (1);
+			return (begin);
 		}
-		(*map)->box[*i - 1] = array;
-		*i = *i + 1;
+		(*map)->box[i - begin] = array;
+		i++;
 	}
-	return 0;
+	return i;
 }
 
 t_map	*read_map(char *file_name)
 {
 	char	**file;
 	t_map	*map;
-	int		*array;
+	int		begin;
 	int		i;
 
-	i = 1;
+	begin = 1;
 	if (new_maps(&map, &file, file_name) == 1)
 		return (NULL);
-	if (fill_map_box(&map, file, &i) == 1)
+	i = fill_map_box(&map, file, begin);
+	if (i == begin)
 		return (NULL);
-	if ((i - 1) != map->h)
+	if ((i - begin) != map->h)
 	{
-		free_int_matrix(&map->box, i - 1);
+		free_int_matrix(&map->box, i - begin);
 		ft_strdel(&map->name);
 		free(map);
 		return (NULL);

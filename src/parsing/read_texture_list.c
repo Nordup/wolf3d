@@ -12,53 +12,6 @@
 
 #include "wolf3d.h"
 
-t_texture	*read_texture(char *file, char *tex_name)
-{
-	char		**ppm;
-	t_texture	*tex;
-	int			*array;
-	int			begin;
-	int			i;
-
-	begin = 3;
-	ppm = ft_read_file(file);
-	if (ppm == NULL)
-		return (NULL);
-	else if (ppm[1] == NULL || ppm[2] == NULL || ppm[3] == NULL)
-		return (NULL);
-	tex = (t_texture*)malloc(sizeof(t_texture));
-	tex->name = tex_name;
-	if ((array = get_int_array(ppm[1], 2)) == NULL)
-		return (NULL);
-	tex->w = array[0];
-	tex->h = array[1];
-	i = begin;
-	tex->clr = (int**)malloc(sizeof(int*) * tex->h);
-	while (ppm[i] != NULL)
-	{
-		array = get_clr_array(ppm[i], tex->w);
-		if (array == NULL)
-		{
-			free_int_matrix(&tex->clr, i - begin);
-			ft_strdel(&tex->name);
-			free(tex);
-			return (NULL);
-		}
-		tex->clr[i - begin] = array;
-		i++;
-	}
-	if ((i - begin) != tex->h)
-	{
-		free_int_matrix(&tex->clr, i - begin);
-		ft_strdel(&tex->name);
-		free(tex);
-		return (NULL);
-	}
-	if (ppm != NULL)
-		ft_str_arraydel(ppm);
-	return (tex);
-}
-
 t_texture	*read_texture_list(void)
 {
 	t_texture	*tex;
