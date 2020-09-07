@@ -31,11 +31,8 @@ int		rendering(Uint32 *img, t_wrld *wrld, t_map *map)
 	i = 0;
 	while (i < WIN_W)
 	{
-		// find distance to wall
 		rcast = ray_casting(map, map->prsn.pnt, in_two_pi(alp));
-		// fish aye fixing
 		rcast.dis *= cos(in_two_pi(map->prsn.alp - alp));
-		// find the wall size
 		wrld->wall->size = WALL_SIZE / rcast.dis;
 		set_wall_texture(wrld, rcast);
 		if (wrld->wall->size >= WIN_H)

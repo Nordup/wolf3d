@@ -28,6 +28,10 @@ typedef struct	s_raycasting
 	t_pnt	cast_pnt;
 }				t_rcasting;
 
+float			dis(t_pnt a, t_pnt b);
+t_rcasting		ret(int cardinal_point, t_pnt cast_pnt, t_pnt per_pnt, int type);
+t_rcasting		vertical(t_map *map, t_pnt pnt, float alp);
+t_rcasting		horizontal(t_map *map, t_pnt pnt, float alp);
 t_rcasting		ray_casting(t_map *map, t_pnt pnt, float alp);
 float			in_two_pi(float alp);
 int				rendering(Uint32 *img, t_wrld *wrld, t_map *map);

@@ -44,21 +44,13 @@ t_texture	*cardinal_tex(t_wall_type *wtype, int c_point)
 float		get_width(t_rcasting rc)
 {
 	if (rc.cardinal_point == North)
-	{
 		return (1 - (rc.cast_pnt.x - (int)rc.cast_pnt.x));
-	}
 	else if (rc.cardinal_point == South)
-	{
 		return (rc.cast_pnt.x - (int)rc.cast_pnt.x);
-	}
 	else if (rc.cardinal_point == East)
-	{
 		return (1 - (rc.cast_pnt.y - (int)rc.cast_pnt.y));
-	}
 	else
-	{
 		return (rc.cast_pnt.y - (int)rc.cast_pnt.y);
-	}
 }
 
 int			get_color(t_texture *tex, int w, int i, int size)
@@ -89,7 +81,7 @@ int			set_wall_texture(t_wrld *wrld, t_rcasting rc)
 {
 	t_wall_type	*wtype;
 	t_texture	*tex;
-	float		w; // from 0 to 1
+	float		w;
 	int			i;
 
 	wtype = find_wall_type(wrld->type, rc.type);
@@ -97,16 +89,14 @@ int			set_wall_texture(t_wrld *wrld, t_rcasting rc)
 	w = get_width(rc);
 	i = 0;
 	if (tex == NULL || tex->clr == NULL || tex->name == NULL)
-	{
 		while (i < wrld->wall->size && i < WIN_H)
 		{
 			wrld->wall->tex[i] = BLACK;
 			i++;
 		}
-	}
 	else
 	{
-		w = w * tex->w; // to tex size
+		w = w * tex->w;
 		while (i < wrld->wall->size && i < WIN_H)
 		{
 			wrld->wall->tex[i] = get_color(tex, (int)w, i, wrld->wall->size);
