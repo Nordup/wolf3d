@@ -1,65 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vertical.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/13 10:19:34 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/13 10:19:37 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "render.h"
 
-void		define_vertical_fields1(t_pnt *A, t_pnt *dlta, int *cardinal_point, t_pnt pnt, float alp)
+int			define_vertical_fields1(t_pnt *a, t_pnt *dlta, t_pnt pnt, float alp)
 {
 	if (alp < PI_2 || alp > PI3_2)
 	{
-		A->x = (int)pnt.x + 1;
+		a->x = (int)pnt.x + 1;
 		dlta->x = 1;
-		A->y = pnt.y + (A->x - pnt.x) * tan(alp);
+		a->y = pnt.y + (a->x - pnt.x) * tan(alp);
 		dlta->y = tan(alp);
-		*cardinal_point = West;
+		return (West);
 	}
 	else
 	{
-		A->x = (int)pnt.x - EPS;
+		a->x = (int)pnt.x - EPS;
 		dlta->x = -1;
-		A->y = pnt.y + (A->x - pnt.x) * tan(alp);
+		a->y = pnt.y + (a->x - pnt.x) * tan(alp);
 		dlta->y = -tan(alp);
-		*cardinal_point = East;
+		return (East);
 	}
 }
 
-void		define_vertical_fields2(t_pnt *A, t_map *map, t_pnt pnt, float alp)
+void		define_vertical_fields2(t_pnt *a, t_map *map, t_pnt pnt, float alp)
 {
 	if (alp == PI_2)
 	{
-		A->y = map->h;
-		A->x = pnt.x;
+		a->y = map->h;
+		a->x = pnt.x;
 	}
 	else if (alp == PI3_2)
 	{
-		A->y = -1;
-		A->x = pnt.x;
+		a->y = -1;
+		a->x = pnt.x;
 	}
-
 }
 
 t_rcasting	vertical(t_map *map, t_pnt pnt, float alp)
 {
-	t_pnt	A;
+	t_pnt	a;
 	t_pnt	dlta;
 	int		cardinal_point;
 	int		type;
 
 	type = 0;
-	define_vertical_fields1(&A, &dlta, &cardinal_point, pnt, alp);
-	define_vertical_fields2(&A, map, pnt, alp);
-	while (A.x >= 0 && A.x < map->w)
+	cardinal_point = define_vertical_fields1(&a, &dlta, pnt, alp);
+	define_vertical_fields2(&a, map, pnt, alp);
+	while (a.x >= 0 && a.x < map->w)
 	{
-		if (A.y >= 0 && A.y < map->h)
+		if (a.y >= 0 && a.y < map->h)
 		{
-			type = map->box[(int)A.y][(int)A.x];
+			type = map->box[(int)a.y][(int)a.x];
 			if (type != 0)
 				break ;
 			else
 			{
-				A.x += dlta.x;
-				A.y += dlta.y;
+				a.x += dlta.x;
+				a.y += dlta.y;
 			}
 		}
 		else
 			break ;
 	}
-	return (ret(cardinal_point, A, pnt, type));
+	return (ret(cardinal_point, a, pnt, type));
 }

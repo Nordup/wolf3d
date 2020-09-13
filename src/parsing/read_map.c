@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/13 10:18:35 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/13 10:18:42 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
 int		new_maps(t_map **map, char ***file, char *file_name)
@@ -15,6 +27,7 @@ int		new_maps(t_map **map, char ***file, char *file_name)
 	(*map)->h = array[0];
 	(*map)->w = array[1];
 	(*map)->box = (int**)malloc(sizeof(int*) * (*map)->h);
+	return (0);
 }
 
 int		fill_map_box(t_map **map, char **file, int begin)
@@ -36,7 +49,7 @@ int		fill_map_box(t_map **map, char **file, int begin)
 		(*map)->box[i - begin] = array;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 t_map	*read_map(char *file_name)

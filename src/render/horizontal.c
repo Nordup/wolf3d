@@ -1,64 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   horizontal.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/13 10:18:57 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/13 10:18:59 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "render.h"
 
-void		define_horizontal_fields1(t_pnt *A, t_pnt *dlta, int *cardinal_point, t_pnt pnt, float alp)
+int			define_horizontal_fields1(t_pnt *a, t_pnt *dlta,
+				t_pnt pnt, float alp)
 {
 	if (alp < PI)
 	{
-		A->y = (int)pnt.y + 1;
+		a->y = (int)pnt.y + 1;
 		dlta->y = 1;
-		A->x = pnt.x + (A->y - pnt.y) / tan(alp);
+		a->x = pnt.x + (a->y - pnt.y) / tan(alp);
 		dlta->x = 1 / tan(alp);
-		*cardinal_point = North;
+		return (North);
 	}
 	else
 	{
-		A->y = (int)pnt.y - EPS;
+		a->y = (int)pnt.y - EPS;
 		dlta->y = -1;
-		A->x = pnt.x + (A->y - pnt.y) / tan(alp);
+		a->x = pnt.x + (a->y - pnt.y) / tan(alp);
 		dlta->x = -1 / tan(alp);
-		*cardinal_point = South;
+		return (South);
 	}
 }
 
-void		define_horizontal_fields2(t_pnt *A, t_map *map, t_pnt pnt, float alp)
+void		define_horizontal_fields2(t_pnt *a, t_map *map,
+				t_pnt pnt, float alp)
 {
 	if (alp == PI)
 	{
-		A->y = pnt.y;
-		A->x = -1;
+		a->y = pnt.y;
+		a->x = -1;
 	}
 	else if (alp == 0)
 	{
-		A->y = pnt.y;
-		A->x = map->w;
+		a->y = pnt.y;
+		a->x = map->w;
 	}
 }
 
 t_rcasting	horizontal(t_map *map, t_pnt pnt, float alp)
 {
-	t_pnt	A;
+	t_pnt	a;
 	t_pnt	dlta;
 	int		cardinal_point;
 	int		type;
 
 	type = 0;
-	define_horizontal_fields1(&A, &dlta, &cardinal_point, pnt, alp);
-	define_horizontal_fields2(&A, map, pnt, alp);
-	while (A.y >= 0 && A.y < map->h)
+	cardinal_point = define_horizontal_fields1(&a, &dlta, pnt, alp);
+	define_horizontal_fields2(&a, map, pnt, alp);
+	while (a.y >= 0 && a.y < map->h)
 	{
-		if (A.x >= 0 && A.x < map->w)
+		if (a.x >= 0 && a.x < map->w)
 		{
-			type = map->box[(int)A.y][(int)A.x];
+			type = map->box[(int)a.y][(int)a.x];
 			if (type != 0)
 				break ;
 			else
-				{
-				A.y += dlta.y;
-				A.x += dlta.x;
+			{
+				a.y += dlta.y;
+				a.x += dlta.x;
 			}
 		}
 		else
 			break ;
 	}
-	return (ret(cardinal_point, A, pnt, type));
+	return (ret(cardinal_point, a, pnt, type));
 }

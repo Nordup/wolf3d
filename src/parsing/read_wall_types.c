@@ -22,7 +22,8 @@ void			new_type(t_wall_type **temp, t_wall_type **wtype, char *content)
 	(*temp)->type = ft_atoi(content);
 }
 
-void			wall_types_line(char *list, t_wall_type **wtype, t_wall_type **temp, t_texture *tex)
+void			wall_types_line(char *list, t_wall_type **wtype,
+					t_wall_type **temp, t_texture *tex)
 {
 	char		*content;
 

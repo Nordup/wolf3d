@@ -59,7 +59,6 @@ int			get_color(t_texture *tex, int w, int i, int size)
 	float h;
 	float x;
 
-
 	if (size < WIN_H)
 	{
 		win_wall = (float)i / size;

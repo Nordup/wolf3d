@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_texture.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfalkrea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/13 10:19:18 by mfalkrea          #+#    #+#             */
+/*   Updated: 2020/09/13 10:19:20 by mfalkrea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
-int			new_texture(t_texture **tex, char ***ppm, char *file, char *tex_name)
+int			new_texture(t_texture **tex, char ***ppm,
+					char *file, char *tex_name)
 {
 	int		*array;
 
@@ -16,7 +29,7 @@ int			new_texture(t_texture **tex, char ***ppm, char *file, char *tex_name)
 	(*tex)->w = array[0];
 	(*tex)->h = array[1];
 	(*tex)->clr = (int**)malloc(sizeof(int*) * (*tex)->h);
-	return 0;
+	return (0);
 }
 
 int			fill_tex_clr(t_texture **tex, char **ppm, int begin)
@@ -38,7 +51,7 @@ int			fill_tex_clr(t_texture **tex, char **ppm, int begin)
 		(*tex)->clr[i - begin] = array;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 t_texture	*read_texture(char *file, char *tex_name)
