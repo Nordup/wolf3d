@@ -2,7 +2,7 @@
 **NAIVE** Ray casting algorithm game engine
 
 ## Descriptioin:
-Linux, MacOS support. Simple ray casting map animation. Ability to create own map with ppm3 format textures on walls, ability to change map in game.
+Simple ray casting map animation. Ability to create own map with ppm3 format textures on walls, ability to change map in game. Linux, MacOS support.
 
 Ray casting algorithm explanation:
 <img src="pictures/350px-Simple_raycasting_with_fisheye_correction.gif" width="500" >
